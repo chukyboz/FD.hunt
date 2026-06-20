@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FD.HUNT - Jastip Adventures Premium Catalog</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cinzel & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -83,13 +86,16 @@
 </head>
 <body class="text-slate-200 min-h-screen flex flex-col selection:bg-gold/30 selection:text-white">
 
+    <!-- GLOBAL NOTIFICATION BANNER -->
     <div class="bg-gradient-to-r from-gold-900 via-gold-700 to-gold-900 text-gold-100 text-center py-2 px-4 text-xs font-semibold tracking-wider uppercase">
         <i class="fa-solid fa-crown mr-1.5 animate-pulse"></i> Nikmati Pengalaman Jasa Titip Eksklusif Bersama FD.HUNT
     </div>
 
+    <!-- MAIN HEADER NAVIGATION -->
     <header class="sticky top-0 z-40 bg-navy-950/80 backdrop-blur-xl border-b border-gold-500/15 shadow-lg shadow-black/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
+            <!-- Brand Monogram logo -->
             <div class="flex items-center gap-3">
                 <div class="relative w-12 h-12 bg-gradient-to-br from-navy-800 to-navy-950 border border-gold-500/30 rounded-xl flex items-center justify-center text-gold shadow-lg shadow-gold-500/5">
                     <i class="fa-solid fa-compass absolute text-gold-500/10 text-3xl"></i>
@@ -101,23 +107,28 @@
                 </div>
             </div>
 
+            <!-- Action Tools -->
             <div class="flex items-center gap-4">
+                <!-- Search box Desktop -->
                 <div class="relative hidden md:block w-80">
-                    <input type="text" id="searchDesktop" placeholder="Cari item fesyen atau makanan..." 
+                    <input type="text" id="searchDesktop" placeholder="Cari item jastip..." 
                         class="w-full pl-11 pr-4 py-2.5 bg-navy-900/90 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
                 </div>
 
+                <!-- Custom Item Button -->
                 <button onclick="openCustomItemModal()" class="flex items-center gap-2 bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-navy-950 px-3.5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md">
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
                     <span>+ Custom Item</span>
                 </button>
 
+                <!-- Sync Trigger Button -->
                 <button onclick="syncGoogleSheetData()" class="flex items-center gap-2 bg-navy-900 hover:bg-navy-800 border border-gold-500/30 text-gold hover:text-gold-300 px-3.5 py-2.5 rounded-xl text-xs font-semibold tracking-wider uppercase transition-all shadow-md">
                     <i id="syncIcon" class="fa-solid fa-rotate text-sm"></i>
                     <span class="hidden sm:inline">Sync Sheet</span>
                 </button>
 
+                <!-- Cart Widget Button -->
                 <button onclick="toggleCartPanel(true)" class="relative p-3 bg-navy-900/90 border border-gold-500/20 hover:bg-navy-800 text-gold rounded-xl transition-all shadow-md">
                     <i class="fa-solid fa-basket-shopping text-lg"></i>
                     <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-600 to-red-500 text-white text-[10px] font-bold w-5.5 h-5.5 rounded-full flex items-center justify-center shadow-md border border-red-400 hidden">0</span>
@@ -126,6 +137,7 @@
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="relative py-16 px-4 bg-gradient-to-b from-navy-900 to-navy-950 overflow-hidden border-b border-gold-500/10">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold-500/5 via-transparent to-transparent pointer-events-none"></div>
         
@@ -150,6 +162,7 @@
                 </div>
             </div>
 
+            <!-- Luxury brand frame -->
             <div class="w-full max-w-sm bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 backdrop-blur-md shadow-2xl relative">
                 <div class="absolute -top-3 -right-3 w-8 h-8 bg-gold rounded-lg flex items-center justify-center text-navy-950 text-sm font-bold shadow-md">
                     <i class="fa-solid fa-compass"></i>
@@ -173,15 +186,18 @@
         </div>
     </section>
 
+    <!-- MAIN BODY SECTION -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <!-- Search bar for mobile -->
         <div class="mb-8 block md:hidden">
             <div class="relative">
-                <input type="text" id="searchMobile" placeholder="Cari item fesyen atau makanan..." 
+                <input type="text" id="searchMobile" placeholder="Cari item jastip..." 
                     class="w-full pl-11 pr-4 py-3 bg-navy-900 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 transition-all shadow-lg">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
             </div>
         </div>
 
+        <!-- Filter category & statistics -->
         <div class="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12 border-b border-slate-800 pb-6">
             <div class="flex items-center gap-3 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
                 <button onclick="changeActiveCategory('all')" id="btn-all" class="cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all">
@@ -201,18 +217,22 @@
             </div>
         </div>
 
+        <!-- PRODUCT GRID -->
         <div id="productGridContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-            </div>
+            <!-- Products will be dynamically created here -->
+        </div>
 
+        <!-- Empty State UI -->
         <div id="emptyCatalogState" class="hidden flex-col items-center justify-center py-24 text-center">
             <div class="w-20 h-20 bg-navy-900 border border-gold-500/20 rounded-full flex items-center justify-center text-gold-500/40 mb-6 shadow-xl">
                 <i class="fa-solid fa-box-open text-3xl"></i>
             </div>
-            <h3 class="font-luxury text-gold font-bold tracking-widest text-lg mb-2">Item Tidak Ditemukan</h3>
-            <p class="text-xs text-slate-400 font-light max-w-sm">Barang yang Anda cari belum tersedia. Coba kata kunci lain atau silakan hubungi CS kami untuk jastip kustom.</p>
+            <h3 class="font-luxury text-gold font-bold tracking-widest text-lg mb-2">Katalog Masih Kosong</h3>
+            <p class="text-xs text-slate-400 font-light max-w-sm">Barang belum tersedia atau silakan klik tombol <b>Sync Sheet</b> di atas untuk menyinkronkan data dari Google Spreadsheet.</p>
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="bg-navy-950 text-slate-400 border-t border-gold-500/10 py-16 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -256,6 +276,7 @@
         </div>
     </footer>
 
+    <!-- POP-UP MODAL: CUSTOM ITEM INPUT -->
     <div id="customItemModal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
         <div class="fixed inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity" onclick="closeCustomItemModal()"></div>
         <div class="relative bg-navy-900 border border-gold-500/30 rounded-2xl max-w-md w-full shadow-2xl overflow-hidden z-10">
@@ -294,6 +315,7 @@
         </div>
     </div>
 
+    <!-- CART PANEL DRAWER (RIGHT SIDE SLIDE-OVER) -->
     <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
         <div class="absolute inset-0 overflow-hidden">
             <div onclick="toggleCartPanel(false)" class="absolute inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity"></div>
@@ -301,6 +323,7 @@
             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                 <div class="pointer-events-auto w-screen max-w-md">
                     <div class="flex h-full flex-col bg-navy-950 border-l border-gold-500/20 shadow-2xl">
+                        <!-- Header -->
                         <div class="px-6 py-6 border-b border-gold-500/10 flex items-center justify-between">
                             <h2 class="font-luxury text-gold font-bold tracking-widest text-sm uppercase">
                                 <i class="fa-solid fa-cart-shopping mr-2"></i> Keranjang Anda
@@ -310,10 +333,13 @@
                             </button>
                         </div>
 
+                        <!-- Items Body -->
                         <div class="flex-1 overflow-y-auto px-6 py-6">
                             <div id="cartItemsList" class="space-y-6">
-                                </div>
+                                <!-- Cart rows injected here -->
+                            </div>
                             
+                            <!-- Empty Cart view -->
                             <div id="cartEmptyMessage" class="flex flex-col items-center justify-center py-20 text-center">
                                 <div class="w-16 h-16 bg-navy-900 border border-gold-500/10 rounded-full flex items-center justify-center text-slate-600 mb-4 shadow-inner">
                                     <i class="fa-solid fa-cart-plus text-xl text-gold-500/30"></i>
@@ -324,6 +350,7 @@
                             </div>
                         </div>
 
+                        <!-- Footer summary -->
                         <div id="cartBottomPanel" class="border-t border-gold-500/10 px-6 py-6 bg-navy-900/40">
                             <div class="flex justify-between text-sm mb-6">
                                 <p class="text-slate-400 font-light tracking-wide">ESTIMASI TOTAL</p>
@@ -342,6 +369,7 @@
         </div>
     </div>
 
+    <!-- SHIPPING MODAL FORM -->
     <div id="shippingFormModal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
         <div class="fixed inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity" onclick="closeShippingModal()"></div>
         <div class="relative bg-navy-900 border border-gold-500/30 rounded-2xl max-w-md w-full shadow-2xl overflow-hidden z-10">
@@ -384,6 +412,7 @@
         </div>
     </div>
 
+    <!-- JAVASCRIPT SYSTEM ENGINE -->
     <script>
         const WHATSAPP_CS_NUMBER = "628197966033";
         const GOOGLE_SHEET_ID = "1Suw18lMNgPzLRWA8GOEbaSznSY6hVBMXvACqhyH5IXo";
@@ -392,7 +421,7 @@
         // URL Google Apps Script Anda yang sudah aktif dan terintegrasi
         const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbxzseqhxGpVpp1AGUf7oa7WXqorUxgtHHZBr8i97qWa4-R46TeZHYj_U0lgaClxUwcq/exec";
 
-        // SEKARANG DIKOSONGKAN: Hanya mengandalkan data real-time dari Google Spreadsheet Anda
+        // SELURUH BARANG BAKU LOKAL TELAH DIHAPUS TOTAL
         const OFFLINE_PRODUCTS_FALLBACK = [];
 
         let activeCategory = 'all';
@@ -583,20 +612,15 @@
             }
         }
 
+        // ... Sisa fungsi javascript (setupSearchEngine, changeActiveCategory, dll) dipertahankan utuh ...
         function setupSearchEngine() {
             const deskInput = document.getElementById('searchDesktop');
             const mobInput = document.getElementById('searchMobile');
-
             const handleTyping = (e) => {
                 searchQuery = e.target.value;
-                if (e.target === deskInput) {
-                    mobInput.value = searchQuery;
-                } else {
-                    deskInput.value = searchQuery;
-                }
+                if (e.target === deskInput) { mobInput.value = searchQuery; } else { deskInput.value = searchQuery; }
                 renderProductsToGrid();
             };
-
             deskInput.addEventListener('input', handleTyping);
             mobInput.addEventListener('input', handleTyping);
         }
@@ -606,85 +630,40 @@
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 btn.className = "cat-btn px-6 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all";
             });
-
             const currentActiveBtn = document.getElementById(`btn-${newCategory}`);
-            if (currentActiveBtn) {
-                currentActiveBtn.className = "cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all";
-            }
+            if (currentActiveBtn) { currentActiveBtn.className = "cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all"; }
             renderProductsToGrid();
         }
 
         function toggleCartPanel(isOpen) {
             const drawer = document.getElementById('cartDrawer');
-            if (isOpen) {
-                drawer.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
-            } else {
-                drawer.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            }
+            if (isOpen) { drawer.classList.remove('hidden'); document.body.classList.add('overflow-hidden'); } else { drawer.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
         }
 
-        function openCustomItemModal() {
-            document.getElementById('customItemModal').classList.remove('hidden');
-        }
-
-        function closeCustomItemModal() {
-            document.getElementById('customItemModal').classList.add('hidden');
-            document.getElementById('customItemForm').reset();
-        }
+        function openCustomItemModal() { document.getElementById('customItemModal').classList.remove('hidden'); }
+        function closeCustomItemModal() { document.getElementById('customItemModal').classList.add('hidden'); document.getElementById('customItemForm').reset(); }
 
         function submitCustomItemToCart(event) {
             event.preventDefault();
-            
             const name = document.getElementById('customName').value.trim();
             const qty = parseInt(document.getElementById('customQty').value, 10) || 1;
             const price = parseInt(document.getElementById('customPrice').value, 10) || 0;
-
             const customId = "custom-" + Date.now();
-
-            const customProductObj = {
-                id: customId,
-                name: "[CUSTOM] " + name,
-                price: price,
-                category: "custom",
-                desc: "Barang titipan kustom khusus kesepakatan pembeli & admin."
-            };
-
-            shoppingCart.push({
-                product: customProductObj,
-                qty: qty
-            });
-
-            updateCartInterface();
-            closeCustomItemModal();
-            showAmbientFeedback(`Custom item "${name}" ditambahkan ke keranjang.`);
-            toggleCartPanel(true);
+            const customProductObj = { id: customId, name: "[CUSTOM] " + name, price: price, category: "custom", desc: "Barang titipan kustom khusus kesepakatan pembeli & admin." };
+            shoppingCart.push({ product: customProductObj, qty: qty });
+            updateCartInterface(); closeCustomItemModal(); showAmbientFeedback(`Custom item "${name}" ditambahkan.`); toggleCartPanel(true);
         }
 
         function addSelectedProductToCart(pId) {
-            const product = activeDatabase.find(p => p.id === pId);
-            if (!product) return;
-
+            const product = activeDatabase.find(p => p.id === pId); if (!product) return;
             const duplicateIdx = shoppingCart.findIndex(item => item.product.id === pId);
-            if (duplicateIdx > -1) {
-                shoppingCart[duplicateIdx].qty += 1;
-            } else {
-                shoppingCart.push({ product, qty: 1 });
-            }
-
-            updateCartInterface();
-            showAmbientFeedback(`${product.name} telah masuk ke keranjang.`);
+            if (duplicateIdx > -1) { shoppingCart[duplicateIdx].qty += 1; } else { shoppingCart.push({ product, qty: 1 }); }
+            updateCartInterface(); showAmbientFeedback(`${product.name} dimasukkan ke keranjang.`);
         }
 
         function adjustQty(pId, delta) {
-            const cartItemIdx = shoppingCart.findIndex(item => item.product.id === pId);
-            if (cartItemIdx === -1) return;
-
-            shoppingCart[cartItemIdx].qty += delta;
-            if (shoppingCart[cartItemIdx].qty <= 0) {
-                shoppingCart.splice(cartItemIdx, 1);
-            }
+            const cartItemIdx = shoppingCart.findIndex(item => item.product.id === pId); if (cartItemIdx === -1) return;
+            shoppingCart[cartItemIdx].qty += delta; if (shoppingCart[cartItemIdx].qty <= 0) { shoppingCart.splice(cartItemIdx, 1); }
             updateCartInterface();
         }
 
@@ -694,30 +673,15 @@
             const emptyView = document.getElementById('cartEmptyMessage');
             const footSummary = document.getElementById('cartBottomPanel');
             const priceLabel = document.getElementById('cartTotalPrice');
+            container.innerHTML = ''; let cumulativeQty = 0; let cumulativePrice = 0;
 
-            container.innerHTML = '';
-            let cumulativeQty = 0;
-            let cumulativePrice = 0;
-
-            if (shoppingCart.length === 0) {
-                emptyView.classList.remove('hidden');
-                footSummary.classList.add('hidden');
-                badge.classList.add('hidden');
-            } else {
-                emptyView.classList.add('hidden');
-                footSummary.classList.remove('hidden');
-                badge.classList.remove('hidden');
-
+            if (shoppingCart.length === 0) { emptyView.classList.remove('hidden'); footSummary.classList.add('hidden'); badge.classList.add('hidden'); } else {
+                emptyView.classList.add('hidden'); footSummary.classList.remove('hidden'); badge.classList.remove('hidden');
                 shoppingCart.forEach(item => {
-                    cumulativeQty += item.qty;
-                    cumulativePrice += item.product.price * item.qty;
-
-                    const row = document.createElement('div');
-                    row.className = "flex items-center justify-between gap-4 py-4 border-b border-slate-800/60";
-                    
+                    cumulativeQty += item.qty; cumulativePrice += item.product.price * item.qty;
+                    const row = document.createElement('div'); row.className = "flex items-center justify-between gap-4 py-4 border-b border-slate-800/60";
                     const isCustom = String(item.product.id).startsWith('custom');
                     const badgeTag = isCustom ? '<span class="text-[9px] bg-amber-500/20 text-amber-400 border border-amber-500/30 px-1 py-0.5 rounded ml-1 uppercase font-bold">Deal</span>' : '';
-
                     row.innerHTML = `
                         <div class="flex items-center gap-3">
                             <div class="w-11 h-11 bg-navy-900 border ${isCustom ? 'border-amber-500/30' : 'border-gold-500/10'} rounded-xl flex items-center justify-center text-xs font-luxury font-bold text-gold">
@@ -732,105 +696,52 @@
                             <button onclick="adjustQty('${item.product.id}', -1)" class="w-6 h-6 rounded-lg bg-navy-900 border border-gold-500/20 flex items-center justify-center text-slate-400 hover:text-gold transition-all">-</button>
                             <span class="text-xs font-bold text-slate-200 w-5 text-center">${item.qty}</span>
                             <button onclick="adjustQty('${item.product.id}', 1)" class="w-6 h-6 rounded-lg bg-navy-900 border border-gold-500/20 flex items-center justify-center text-slate-400 hover:text-gold transition-all">+</button>
-                        </div>
-                    `;
+                        </div>`;
                     container.appendChild(row);
                 });
             }
-
-            badge.textContent = cumulativeQty;
-            priceLabel.textContent = formatRupiah(cumulativePrice);
+            badge.textContent = cumulativeQty; priceLabel.textContent = formatRupiah(cumulativePrice);
         }
 
-        function formatRupiah(rawNum) {
-            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(rawNum);
-        }
+        function formatRupiah(rawNum) { return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(rawNum); }
 
         function showAmbientFeedback(msg) {
-            const existingToast = document.getElementById('customToasterNotification');
-            if (existingToast) existingToast.remove();
-
-            const toast = document.createElement('div');
-            toast.id = "customToasterNotification";
+            const existingToast = document.getElementById('customToasterNotification'); if (existingToast) existingToast.remove();
+            const toast = document.createElement('div'); toast.id = "customToasterNotification";
             toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 bg-navy-950 border border-gold text-slate-200 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 text-xs tracking-wide z-50 transition-all duration-300 transform translate-y-12 opacity-0 font-medium";
-            toast.innerHTML = `<i class="fa-solid fa-circle-check text-gold text-base"></i> <span>${msg}</span>`;
-            document.body.appendChild(toast);
-
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-gold text-base"></i> <span>${msg}</span>`; document.body.appendChild(toast);
             setTimeout(() => { toast.classList.remove('translate-y-12', 'opacity-0'); }, 50);
-            setTimeout(() => {
-                toast.classList.add('translate-y-12', 'opacity-0');
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+            setTimeout(() => { toast.classList.add('translate-y-12', 'opacity-0'); setTimeout(() => toast.remove(), 300); }, 3000);
         }
 
-        function openShippingModal() {
-            if (shoppingCart.length === 0) return;
-            document.getElementById('shippingFormModal').classList.remove('hidden');
-        }
-
-        function closeShippingModal() {
-            document.getElementById('shippingFormModal').classList.add('hidden');
-        }
+        function openShippingModal() { if (shoppingCart.length === 0) return; document.getElementById('shippingFormModal').classList.remove('hidden'); }
+        function closeShippingModal() { document.getElementById('shippingFormModal').classList.add('hidden'); }
 
         async function executeWhatsAppCheckout(event) {
             event.preventDefault();
-
             const name = document.getElementById('custName').value.trim();
             const phone = document.getElementById('custPhone').value.trim();
             const address = document.getElementById('custAddress').value.trim();
             const courier = document.getElementById('custCourier').value;
-
             if (shoppingCart.length === 0) return;
 
-            let formattedOrderItems = "";
-            let cartGrandTotal = 0;
-
+            let formattedOrderItems = ""; let cartGrandTotal = 0;
             shoppingCart.forEach((item, index) => {
-                const totalLineItemPrice = item.product.price * item.qty;
-                cartGrandTotal += totalLineItemPrice;
-                
-                let flag = item.product.category === 'food' ? '🇹🇭' : '🇲🇾';
-                if(item.product.category === 'custom') flag = '✨';
-
+                const totalLineItemPrice = item.product.price * item.qty; cartGrandTotal += totalLineItemPrice;
+                let flag = item.product.category === 'food' ? '🇹🇭' : '🇲🇾'; if(item.product.category === 'custom') flag = '✨';
                 formattedOrderItems += `${index + 1}. ${flag} ${item.product.name} (x${item.qty}) - ${formatRupiah(totalLineItemPrice)}\n`;
             });
 
             const message = `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️\n🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia\n\n*Data Pembeli:*\n👤 *Nama:* ${name}\n📞 *No. WA:* ${phone}\n📍 *Alamat:* ${address}\n🚚 *Kurir:* ${courier}\n\n*Detail Pesanan:*\n${formattedOrderItems}\n*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*\n\n-----------------------------------------\nMohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
 
             try {
-                await fetch(ORDER_SHEET_API, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        tanggal: new Date().toLocaleString("id-ID"),
-                        nama: name,
-                        whatsapp: phone,
-                        alamat: address,
-                        kurir: courier,
-                        produk: formattedOrderItems,
-                        total: cartGrandTotal
-                    })
-                });
-                console.log("Data pesanan berhasil terkirim ke antrean Spreadsheet API.");
-            } catch (error) {
-                console.error("Gagal mengirim pesanan ke Spreadsheet:", error);
-            }
+                await fetch(ORDER_SHEET_API, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tanggal: new Date().toLocaleString("id-ID"), nama: name, whatsapp: phone, alamat: address, kurir: courier, produk: formattedOrderItems, total: cartGrandTotal }) });
+            } catch (error) { console.error("Gagal mengirim pesanan:", error); }
 
             const cleanPhoneTarget = WHATSAPP_CS_NUMBER.replace(/[^\d]/g, '');
             const finalUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneTarget}&text=${encodeURIComponent(message)}`;
-
             window.open(finalUrl, '_blank');
-
-            shoppingCart = [];
-            updateCartInterface();
-            closeShippingModal();
-            toggleCartPanel(false);
-            document.getElementById('shippingForm').reset();
-
-            showAmbientFeedback("Pesanan tersimpan & WhatsApp dibuka...");
+            shoppingCart = []; updateCartInterface(); closeShippingModal(); toggleCartPanel(false); document.getElementById('shippingForm').reset(); showAmbientFeedback("Pesanan tersimpan & WhatsApp dibuka...");
         }
     </script>
 </body>
