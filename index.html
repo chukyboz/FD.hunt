@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FD.HUNT - Jastip Adventures Premium Catalog</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Cinzel & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -86,19 +83,15 @@
 </head>
 <body class="text-slate-200 min-h-screen flex flex-col selection:bg-gold/30 selection:text-white">
 
-    <!-- GLOBAL NOTIFICATION BANNER -->
     <div class="bg-gradient-to-r from-gold-900 via-gold-700 to-gold-900 text-gold-100 text-center py-2 px-4 text-xs font-semibold tracking-wider uppercase">
         <i class="fa-solid fa-crown mr-1.5 animate-pulse"></i> Nikmati Pengalaman Jasa Titip Eksklusif Bersama FD.HUNT
     </div>
 
-    <!-- MAIN HEADER NAVIGATION -->
     <header class="sticky top-0 z-40 bg-navy-950/80 backdrop-blur-xl border-b border-gold-500/15 shadow-lg shadow-black/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Brand Monogram logo inspired by 06A1EC9E-3C28-4C81-90C1-0912F2FD0F14_4_5005_c.jpeg -->
             <div class="flex items-center gap-3">
                 <div class="relative w-12 h-12 bg-gradient-to-br from-navy-800 to-navy-950 border border-gold-500/30 rounded-xl flex items-center justify-center text-gold shadow-lg shadow-gold-500/5">
-                    <!-- Compass star outline -->
                     <i class="fa-solid fa-compass absolute text-gold-500/10 text-3xl"></i>
                     <span class="font-luxury font-extrabold text-xl tracking-tighter text-gold luxury-text-glow z-10">FD</span>
                 </div>
@@ -108,22 +101,18 @@
                 </div>
             </div>
 
-            <!-- Action Tools -->
             <div class="flex items-center gap-4">
-                <!-- Search box Desktop -->
                 <div class="relative hidden md:block w-80">
                     <input type="text" id="searchDesktop" placeholder="Cari item fesyen atau makanan..." 
                         class="w-full pl-11 pr-4 py-2.5 bg-navy-900/90 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
                 </div>
 
-                <!-- Sync Trigger Button -->
                 <button onclick="syncGoogleSheetData()" class="flex items-center gap-2 bg-navy-900 hover:bg-navy-800 border border-gold-500/30 text-gold hover:text-gold-300 px-3.5 py-2.5 rounded-xl text-xs font-semibold tracking-wider uppercase transition-all shadow-md">
                     <i id="syncIcon" class="fa-solid fa-rotate text-sm"></i>
                     <span class="hidden sm:inline">Sync Sheet</span>
                 </button>
 
-                <!-- Cart Widget Button -->
                 <button onclick="toggleCartPanel(true)" class="relative p-3 bg-navy-900/90 border border-gold-500/20 hover:bg-navy-800 text-gold rounded-xl transition-all shadow-md">
                     <i class="fa-solid fa-basket-shopping text-lg"></i>
                     <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-600 to-red-500 text-white text-[10px] font-bold w-5.5 h-5.5 rounded-full flex items-center justify-center shadow-md border border-red-400 hidden">0</span>
@@ -132,9 +121,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="relative py-16 px-4 bg-gradient-to-b from-navy-900 to-navy-950 overflow-hidden border-b border-gold-500/10">
-        <!-- Subtle golden particles ambient glow -->
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold-500/5 via-transparent to-transparent pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -158,7 +145,6 @@
                 </div>
             </div>
 
-            <!-- Luxury brand frame referencing the image metadata style -->
             <div class="w-full max-w-sm bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 backdrop-blur-md shadow-2xl relative">
                 <div class="absolute -top-3 -right-3 w-8 h-8 bg-gold rounded-lg flex items-center justify-center text-navy-950 text-sm font-bold shadow-md">
                     <i class="fa-solid fa-compass"></i>
@@ -182,9 +168,7 @@
         </div>
     </section>
 
-    <!-- MAIN BODY SECTION -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-        <!-- Search bar for mobile -->
         <div class="mb-8 block md:hidden">
             <div class="relative">
                 <input type="text" id="searchMobile" placeholder="Cari item fesyen atau makanan..." 
@@ -193,7 +177,6 @@
             </div>
         </div>
 
-        <!-- Filter category & statistics -->
         <div class="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12 border-b border-slate-800 pb-6">
             <div class="flex items-center gap-3 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
                 <button onclick="changeActiveCategory('all')" id="btn-all" class="cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all">
@@ -213,12 +196,9 @@
             </div>
         </div>
 
-        <!-- PRODUCT GRID -->
         <div id="productGridContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-            <!-- Products will be dynamically created here -->
-        </div>
+            </div>
 
-        <!-- Empty State UI -->
         <div id="emptyCatalogState" class="hidden flex-col items-center justify-center py-24 text-center">
             <div class="w-20 h-20 bg-navy-900 border border-gold-500/20 rounded-full flex items-center justify-center text-gold-500/40 mb-6 shadow-xl">
                 <i class="fa-solid fa-box-open text-3xl"></i>
@@ -228,7 +208,6 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-navy-950 text-slate-400 border-t border-gold-500/10 py-16 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -244,7 +223,7 @@
                     </p>
                 </div>
                 <div>
-                    <h5 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest mb-6">RECH OUT</h5>
+                    <h5 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest mb-6">REACH OUT</h5>
                     <ul class="text-xs space-y-4 font-light">
                         <li class="flex items-center gap-3">
                             <i class="fa-brands fa-whatsapp text-gold text-base"></i>
@@ -267,21 +246,18 @@
                 </div>
             </div>
             <div class="border-t border-slate-900 mt-12 pt-8 text-center text-xs tracking-wider text-slate-500 font-light">
-                <p>&copy; 2026 FD.HUNT Jastip Adventures. All Rights Reserved.</p>
+                <p>© 2026 FD.HUNT Jastip Adventures. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- CART PANEL DRAWER (RIGHT SIDE SLIDE-OVER) -->
     <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
         <div class="absolute inset-0 overflow-hidden">
-            <!-- Background overlay -->
             <div onclick="toggleCartPanel(false)" class="absolute inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity"></div>
 
             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                 <div class="pointer-events-auto w-screen max-w-md">
                     <div class="flex h-full flex-col bg-navy-950 border-l border-gold-500/20 shadow-2xl">
-                        <!-- Header -->
                         <div class="px-6 py-6 border-b border-gold-500/10 flex items-center justify-between">
                             <h2 class="font-luxury text-gold font-bold tracking-widest text-sm uppercase">
                                 <i class="fa-solid fa-cart-shopping mr-2"></i> Keranjang Anda
@@ -291,13 +267,10 @@
                             </button>
                         </div>
 
-                        <!-- Items Body -->
                         <div class="flex-1 overflow-y-auto px-6 py-6">
                             <div id="cartItemsList" class="space-y-6">
-                                <!-- Cart rows injected here -->
-                            </div>
+                                </div>
                             
-                            <!-- Empty Cart view -->
                             <div id="cartEmptyMessage" class="flex flex-col items-center justify-center py-20 text-center">
                                 <div class="w-16 h-16 bg-navy-900 border border-gold-500/10 rounded-full flex items-center justify-center text-slate-600 mb-4 shadow-inner">
                                     <i class="fa-solid fa-cart-plus text-xl text-gold-500/30"></i>
@@ -308,7 +281,6 @@
                             </div>
                         </div>
 
-                        <!-- Footer summary -->
                         <div id="cartBottomPanel" class="border-t border-gold-500/10 px-6 py-6 bg-navy-900/40">
                             <div class="flex justify-between text-sm mb-6">
                                 <p class="text-slate-400 font-light tracking-wide">ESTIMASI TOTAL</p>
@@ -327,7 +299,6 @@
         </div>
     </div>
 
-    <!-- CUSTOM NOTIFICATION MODALS & CONFIRM BOXES -->
     <div id="shippingFormModal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
         <div class="fixed inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity" onclick="closeShippingModal()"></div>
         <div class="relative bg-navy-900 border border-gold-500/30 rounded-2xl max-w-md w-full shadow-2xl overflow-hidden z-10">
@@ -370,13 +341,15 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT SYSTEM ENGINE -->
     <script>
         const WHATSAPP_CS_NUMBER = "628197966033";
         const GOOGLE_SHEET_ID = "1Suw18lMNgPzLRWA8GOEbaSznSY6hVBMXvACqhyH5IXo";
         const SPREADSHEET_GID = "450214844";
+        
+        // PENTING: Ganti URL di bawah ini dengan URL Aplikasi Web (Web App URL) dari Google Apps Script Anda setelah di-deploy!
+        const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbwYOUR_APP_SCRIPT_ID_HERE/exec";
 
-        // Elegantly curated local backup system in case of offline / CORS issues
+        // Curated local backup system
         const OFFLINE_PRODUCTS_FALLBACK = [
             { id: 4, name: "Chiko Tomato", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
             { id: 5, name: "Sandwich cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
@@ -416,11 +389,8 @@
         });
 
         async function initializeDatabase() {
-            // Set fallback as initial
             activeDatabase = [...OFFLINE_PRODUCTS_FALLBACK];
             renderProductsToGrid();
-
-            // Attempt dynamic live sheet sync
             await syncGoogleSheetData(true);
         }
 
@@ -435,7 +405,6 @@
                 if (!response.ok) throw new Error("HTTP error network request blocked.");
                 
                 const responseText = await response.text();
-                // Extract pure JSON
                 const cleanJsonStr = responseText.substring(responseText.indexOf('{'), responseText.lastIndexOf('}') + 1);
                 const parsedResult = JSON.parse(cleanJsonStr);
                 
@@ -443,7 +412,6 @@
                 if (!tableRows || tableRows.length === 0) throw new Error("No data found in spreadsheet.");
 
                 const importedProducts = [];
-                // Process Row 4 to Row 43 (Indices 3 to 42 in 0-indexed rows)
                 const startRowIdx = 3;
                 const endRowIdx = Math.min(tableRows.length, 43);
 
@@ -451,14 +419,12 @@
                     const rowData = tableRows[i];
                     if (!rowData || !rowData.c) continue;
 
-                    // Extracted schema matching custom instructions: C: Nama, D: Foto, F: Harga Mark Up
                     const colName = rowData.c[2] ? rowData.c[2].v : '';
                     const colPhoto = rowData.c[3] ? rowData.c[3].v : '';
                     const colPrice = rowData.c[5] ? rowData.c[5].v : 0;
 
-                    if (!colName) continue; // Skip blank items
+                    if (!colName) continue;
 
-                    // Clean & cast price
                     let priceVal = 0;
                     if (typeof colPrice === 'number') {
                         priceVal = colPrice;
@@ -466,10 +432,8 @@
                         priceVal = parseInt(String(colPrice).replace(/[^\d]/g, ''), 10) || 0;
                     }
 
-                    // Format image link
                     let imageUrl = '';
                     if (colPhoto && String(colPhoto).startsWith('http')) {
-                        // Support google drive bypass natively
                         if (String(colPhoto).includes('drive.google.com')) {
                             const driveIdMatch = String(colPhoto).match(/\/file\/d\/([^\/]+)/) || String(colPhoto).match(/id=([^&]+)/);
                             if (driveIdMatch && driveIdMatch[1]) {
@@ -480,7 +444,6 @@
                         }
                     }
 
-                    // Strict auto-classification to 2 categories: Fashion and Food
                     let catVal = 'fashion';
                     const lowerName = colName.toLowerCase();
                     const foodTriggers = ['chiko', 'sandwich', 'mochi', 'roll', 'burger', 'spicy', 'tama', 'kani', 'sosis', 'mie', 'squidgame', 'tuna', 'salmon', 'skin', 'kunna', 'cake', 'matcha', 'meiji', 'lotus', 'dorbua', 'chewy', 'youghurt', 'snack', 'makanan', 'camilan', 'biscuit', 'coklat', 'chocolate', 'drink', 'beverage', 'tea', 'coffee', 'ramen', 'instant', 'tomato', 'cheese', 'beef', 'chicken', 'egg', 'seaweed', 'squid', 'food', 'makan'];
@@ -505,7 +468,7 @@
                     if (!isSilent) showAmbientFeedback("Sinkronisasi database berhasil diperbarui!");
                 }
             } catch (err) {
-                console.warn("Spreadsheet connection blocked or offline, loaded secure backup catalog.", err);
+                console.warn("Spreadsheet connection blocked, loaded secure backup catalog.", err);
                 if (!isSilent) showAmbientFeedback("Menggunakan data katalog ter-caching.");
             } finally {
                 if (icon) icon.classList.remove('animate-spin');
@@ -539,15 +502,10 @@
                 const card = document.createElement('div');
                 card.className = "group relative bg-navy-950/60 border border-gold-500/10 hover:border-gold-500/30 rounded-2xl overflow-hidden backdrop-blur-md gold-border-glow flex flex-col justify-between";
                 
-                // Visual container (Empty/placeholder set by default to match aesthetics requested)
                 let imageElement = '';
                 if (p.image && p.image !== '') {
-                    // Try loaded image
-                    imageElement = `
-                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImageLoadError(this, '${p.name}')">
-                    `;
+                    imageElement = `<img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImageLoadError(this, '${p.name}')">`;
                 } else {
-                    // Premium Gold & Navy monogram vector placeholder
                     imageElement = createPremiumPlaceholderSvg(p.name);
                 }
 
@@ -579,7 +537,6 @@
             });
         }
 
-        // Beautiful dynamic vector generator for placeholders
         function createPremiumPlaceholderSvg(name) {
             const initials = name.substring(0, 2).toUpperCase();
             return `
@@ -600,7 +557,6 @@
             `;
         }
 
-        // Image load error catcher
         function handleImageLoadError(imgObj, name) {
             const container = imgObj.parentElement;
             if (container) {
@@ -628,7 +584,6 @@
 
         function changeActiveCategory(newCategory) {
             activeCategory = newCategory;
-
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 btn.className = "cat-btn px-6 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all";
             });
@@ -637,11 +592,9 @@
             if (currentActiveBtn) {
                 currentActiveBtn.className = "cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all";
             }
-
             renderProductsToGrid();
         }
 
-        // Toggle Drawer Slide-over Panel
         function toggleCartPanel(isOpen) {
             const drawer = document.getElementById('cartDrawer');
             if (isOpen) {
@@ -668,6 +621,7 @@
             showAmbientFeedback(`${product.name} telah masuk ke keranjang.`);
         }
 
+        // Memperbaiki masalah salah ketik "adjustQty" di baris row.innerHTML keranjang sebelumnya
         function adjustQty(pId, delta) {
             const cartItemIdx = shoppingCart.findIndex(item => item.product.id === pId);
             if (cartItemIdx === -1) return;
@@ -733,7 +687,6 @@
             return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(rawNum);
         }
 
-        // Custom notification toaster without using alert()
         function showAmbientFeedback(msg) {
             const existingToast = document.getElementById('customToasterNotification');
             if (existingToast) existingToast.remove();
@@ -744,10 +697,7 @@
             toast.innerHTML = `<i class="fa-solid fa-circle-check text-gold text-base"></i> <span>${msg}</span>`;
             document.body.appendChild(toast);
 
-            setTimeout(() => {
-                toast.classList.remove('translate-y-12', 'opacity-0');
-            }, 50);
-
+            setTimeout(() => { toast.classList.remove('translate-y-12', 'opacity-0'); }, 50);
             setTimeout(() => {
                 toast.classList.add('translate-y-12', 'opacity-0');
                 setTimeout(() => toast.remove(), 300);
@@ -762,6 +712,7 @@
         function closeShippingModal() {
             document.getElementById('shippingFormModal').classList.add('hidden');
         }
+
         async function executeWhatsAppCheckout(event) {
             event.preventDefault();
 
@@ -778,40 +729,21 @@
             shoppingCart.forEach((item, index) => {
                 const totalLineItemPrice = item.product.price * item.qty;
                 cartGrandTotal += totalLineItemPrice;
+                const flag = item.product.category === 'food' ? '🇹🇭' : '🇲🇾'; // Fallback flag sederhana berdasarkan kategori
 
-                const flag = item.product.origin === 'malaysia'
-                    ? '🇲🇾'
-                    : '🇹🇭';
-
-                formattedOrderItems +=
-                    `${index + 1}. ${flag} ${item.product.name} (x${item.qty}) - ${formatRupiah(totalLineItemPrice)}\n`;
+                formattedOrderItems += `${index + 1}. ${flag} ${item.product.name} (x${item.qty}) - ${formatRupiah(totalLineItemPrice)}\n`;
             });
 
-            const message =
-        `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️
-        🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia
+            const message = `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️\n🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia\n\n*Data Pembeli:*\n👤 *Nama:* ${name}\n📞 *No. WA:* ${phone}\n📍 *Alamat:* ${address}\n🚚 *Kurir:* ${courier}\n\n*Detail Pesanan:*\n${formattedOrderItems}\n*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*\n\n-----------------------------------------\nMohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
 
-        *Data Pembeli:*
-        👤 *Nama:* ${name}
-        📞 *No. WA:* ${phone}
-        📍 *Alamat:* ${address}
-        🚚 *Kurir:* ${courier}
-
-        *Detail Pesanan:*
-        ${formattedOrderItems}
-
-        *Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*
-
-        -----------------------------------------
-        Mohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
-
-            // =====================
-            // SIMPAN KE SPREADSHEET
-            // =====================
+            // ==========================================
+            // ASINKRONUS: SIMPAN KE GOOGLE SPREADSHEET
+            // ==========================================
             try {
-
+                // Menggunakan mode 'no-cors' agar request tidak diblokir kebijakan CORS browser
                 await fetch(ORDER_SHEET_API, {
                     method: "POST",
+                    mode: "no-cors",
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -825,35 +757,28 @@
                         total: cartGrandTotal
                     })
                 });
-
-                console.log("Order berhasil disimpan");
-
+                console.log("Data pesanan berhasil terkirim ke antrean Spreadsheet API.");
             } catch (error) {
-                console.error("Gagal menyimpan order:", error);
+                console.error("Gagal mengirim pesanan ke Spreadsheet:", error);
             }
 
-            // =====================
-            // TETAP BUKA WHATSAPP
-            // =====================
-            const cleanPhoneTarget =
-                WHATSAPP_CS_NUMBER.replace(/[^\d]/g, '');
-
-            const finalUrl =
-                `https://api.whatsapp.com/send?phone=${cleanPhoneTarget}&text=${encodeURIComponent(message)}`;
+            // ==========================================
+            // REDIRECT & RESERVASI WHATSAPP
+            // ==========================================
+            const cleanPhoneTarget = WHATSAPP_CS_NUMBER.replace(/[^\d]/g, '');
+            const finalUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneTarget}&text=${encodeURIComponent(message)}`;
 
             window.open(finalUrl, '_blank');
 
+            // Reset Aplikasi Sesi Keranjang
             shoppingCart = [];
             updateCartInterface();
             closeShippingModal();
             toggleCartPanel(false);
             document.getElementById('shippingForm').reset();
 
-            showAmbientFeedback(
-                "Pesanan tersimpan & WhatsApp dibuka..."
-            );
+            showAmbientFeedback("Pesanan tersimpan & WhatsApp dibuka...");
         }
     </script>
 </body>
 </html>
-
