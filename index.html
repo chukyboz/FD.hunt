@@ -346,8 +346,8 @@
         const GOOGLE_SHEET_ID = "1Suw18lMNgPzLRWA8GOEbaSznSY6hVBMXvACqhyH5IXo";
         const SPREADSHEET_GID = "450214844";
         
-        // PENTING: Ganti URL di bawah ini dengan URL Aplikasi Web (Web App URL) dari Google Apps Script Anda setelah di-deploy!
-        const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbwYOUR_APP_SCRIPT_ID_HERE/exec";
+        // URL Google Apps Script Anda yang sudah aktif dan terintegrasi
+        const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbxzseqhxGpVpp1AGUf7oa7WXqorUxgtHHZBr8i97qWa4-R46TeZHYj_U0lgaClxUwcq/exec";
 
         // Curated local backup system
         const OFFLINE_PRODUCTS_FALLBACK = [
@@ -621,7 +621,6 @@
             showAmbientFeedback(`${product.name} telah masuk ke keranjang.`);
         }
 
-        // Memperbaiki masalah salah ketik "adjustQty" di baris row.innerHTML keranjang sebelumnya
         function adjustQty(pId, delta) {
             const cartItemIdx = shoppingCart.findIndex(item => item.product.id === pId);
             if (cartItemIdx === -1) return;
@@ -729,7 +728,7 @@
             shoppingCart.forEach((item, index) => {
                 const totalLineItemPrice = item.product.price * item.qty;
                 cartGrandTotal += totalLineItemPrice;
-                const flag = item.product.category === 'food' ? '🇹🇭' : '🇲🇾'; // Fallback flag sederhana berdasarkan kategori
+                const flag = item.product.category === 'food' ? '🇹🇭' : '🇲🇾';
 
                 formattedOrderItems += `${index + 1}. ${flag} ${item.product.name} (x${item.qty}) - ${formatRupiah(totalLineItemPrice)}\n`;
             });
@@ -740,7 +739,6 @@
             // ASINKRONUS: SIMPAN KE GOOGLE SPREADSHEET
             // ==========================================
             try {
-                // Menggunakan mode 'no-cors' agar request tidak diblokir kebijakan CORS browser
                 await fetch(ORDER_SHEET_API, {
                     method: "POST",
                     mode: "no-cors",
@@ -770,7 +768,7 @@
 
             window.open(finalUrl, '_blank');
 
-            // Reset Aplikasi Sesi Keranjang
+            // Reset Sesi Aplikasi
             shoppingCart = [];
             updateCartInterface();
             closeShippingModal();
