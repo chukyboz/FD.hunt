@@ -392,32 +392,8 @@
         // URL Google Apps Script Anda yang sudah aktif dan terintegrasi
         const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbxzseqhxGpVpp1AGUf7oa7WXqorUxgtHHZBr8i97qWa4-R46TeZHYj_U0lgaClxUwcq/exec";
 
-        // Curated local backup system
-        const OFFLINE_PRODUCTS_FALLBACK = [
-            { id: 4, name: "Chiko Tomato", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 5, name: "Sandwich cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 6, name: "Salted egg mochi", price: 60000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 7, name: "Sandwich beef cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 8, name: "Chicken roll seaweed", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 9, name: "Burger beef", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 10, name: "Burger cheese", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 11, name: "Burger spicy", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 12, name: "Chicken finger Spicy", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 13, name: "Tama Spicy", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 14, name: "Tama Ori", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 15, name: "Kani", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 16, name: "Sosis sapi", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 17, name: "Mie ok Squidgame", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 18, name: "Tuna salmon", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 19, name: "Chicken Skin", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 20, name: "Kunna", price: 45000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 21, name: "Euro Cake", price: 40000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 22, name: "Matcha 5 Sachet", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 23, name: "Meiji", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 24, name: "Celana Gajah", price: 100000, category: "fashion", desc: "Produk lifestyle & fashion terkurasi" },
-            { id: 25, name: "Lotus Dorbua Spicy", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
-            { id: 26, name: "My Chewy Youghurt", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" }
-        ];
+        // SEKARANG DIKOSONGKAN: Hanya mengandalkan data real-time dari Google Spreadsheet Anda
+        const OFFLINE_PRODUCTS_FALLBACK = [];
 
         let activeCategory = 'all';
         let searchQuery = '';
@@ -649,7 +625,6 @@
             }
         }
 
-        // --- NEW FEATURES: CUSTOM ITEM MODAL ACTIONS ---
         function openCustomItemModal() {
             document.getElementById('customItemModal').classList.remove('hidden');
         }
@@ -666,7 +641,6 @@
             const qty = parseInt(document.getElementById('customQty').value, 10) || 1;
             const price = parseInt(document.getElementById('customPrice').value, 10) || 0;
 
-            // Generate unique timestamp ID for custom items
             const customId = "custom-" + Date.now();
 
             const customProductObj = {
@@ -685,7 +659,7 @@
             updateCartInterface();
             closeCustomItemModal();
             showAmbientFeedback(`Custom item "${name}" ditambahkan ke keranjang.`);
-            toggleCartPanel(true); // Buka keranjang otomatis untuk melihat kalkulasi total terbaru
+            toggleCartPanel(true);
         }
 
         function addSelectedProductToCart(pId) {
@@ -741,7 +715,6 @@
                     const row = document.createElement('div');
                     row.className = "flex items-center justify-between gap-4 py-4 border-b border-slate-800/60";
                     
-                    // Beri warna badge pembeda khusus jika itu adalah barang custom
                     const isCustom = String(item.product.id).startsWith('custom');
                     const badgeTag = isCustom ? '<span class="text-[9px] bg-amber-500/20 text-amber-400 border border-amber-500/30 px-1 py-0.5 rounded ml-1 uppercase font-bold">Deal</span>' : '';
 
@@ -824,9 +797,6 @@
 
             const message = `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️\n🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia\n\n*Data Pembeli:*\n👤 *Nama:* ${name}\n📞 *No. WA:* ${phone}\n📍 *Alamat:* ${address}\n🚚 *Kurir:* ${courier}\n\n*Detail Pesanan:*\n${formattedOrderItems}\n*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*\n\n-----------------------------------------\nMohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
 
-            // ==========================================
-            // ASINKRONUS: SIMPAN KE GOOGLE SPREADSHEET
-            // ==========================================
             try {
                 await fetch(ORDER_SHEET_API, {
                     method: "POST",
@@ -849,15 +819,11 @@
                 console.error("Gagal mengirim pesanan ke Spreadsheet:", error);
             }
 
-            // ==========================================
-            // REDIRECT & RESERVASI WHATSAPP
-            // ==========================================
             const cleanPhoneTarget = WHATSAPP_CS_NUMBER.replace(/[^\d]/g, '');
             const finalUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneTarget}&text=${encodeURIComponent(message)}`;
 
             window.open(finalUrl, '_blank');
 
-            // Reset Sesi Aplikasi
             shoppingCart = [];
             updateCartInterface();
             closeShippingModal();
