@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FD.HUNT - Jastip Thailand & Malaysia Premium Catalog</title>
+    <title>FD.HUNT - Jastip Adventures Premium Catalog</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -12,17 +12,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         navy: {
-                            950: '#050916',
-                            900: '#0a1228',
-                            800: '#121e40',
-                            700: '#1a2d5a',
+                            950: '#030611',
+                            900: '#070f24',
+                            800: '#0f1c3f',
+                            700: '#172a5a',
                         },
                         gold: {
                             DEFAULT: '#C5A059',
@@ -36,16 +36,6 @@
                             700: '#836025',
                             800: '#624416',
                             900: '#412B0B',
-                        },
-                        thai: {
-                            red: '#B5121B',
-                            blue: '#2D2A86',
-                            light: '#E8D5A3',
-                        },
-                        malay: {
-                            red: '#CC0001',
-                            blue: '#00205C',
-                            yellow: '#FCC100',
                         }
                     },
                     fontFamily: {
@@ -56,33 +46,15 @@
             }
         }
     </script>
-
+    
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050916;
+            background-color: #030611;
         }
-
-        /* Thai lotus decorative pattern */
-        .thai-pattern-bg {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23C5A05918' stroke-width='1'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3Cpath d='M40 10 Q50 25 40 40 Q30 25 40 10z'/%3E%3Cpath d='M40 70 Q50 55 40 40 Q30 55 40 70z'/%3E%3Cpath d='M10 40 Q25 50 40 40 Q25 30 10 40z'/%3E%3Cpath d='M70 40 Q55 50 40 40 Q55 30 70 40z'/%3E%3Cpath d='M18 18 Q31 31 40 40 Q29 29 18 18z'/%3E%3Cpath d='M62 62 Q49 49 40 40 Q51 51 62 62z'/%3E%3Cpath d='M62 18 Q49 31 40 40 Q51 29 62 18z'/%3E%3Cpath d='M18 62 Q31 49 40 40 Q29 51 18 62z'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        /* Malaysian batik inspired pattern */
-        .batik-pattern-bg {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23FCC10010' stroke-width='0.8'%3E%3Cpolygon points='30,5 55,20 55,40 30,55 5,40 5,20'/%3E%3Cpolygon points='30,15 45,22 45,38 30,45 15,38 15,22'/%3E%3Ccircle cx='30' cy='30' r='6'/%3E%3Cline x1='30' y1='5' x2='30' y2='15'/%3E%3Cline x1='30' y1='45' x2='30' y2='55'/%3E%3Cline x1='5' y1='20' x2='15' y2='22'/%3E%3Cline x1='5' y1='40' x2='15' y2='38'/%3E%3Cline x1='55' y1='20' x2='45' y2='22'/%3E%3Cline x1='55' y1='40' x2='45' y2='38'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
+        
         .luxury-text-glow {
             text-shadow: 0 0 10px rgba(197, 160, 89, 0.3), 0 0 20px rgba(197, 160, 89, 0.1);
-        }
-
-        .thai-glow {
-            text-shadow: 0 0 10px rgba(181, 18, 27, 0.4), 0 0 20px rgba(181, 18, 27, 0.15);
-        }
-
-        .malay-glow {
-            text-shadow: 0 0 10px rgba(252, 193, 0, 0.4), 0 0 20px rgba(252, 193, 0, 0.15);
         }
 
         .gold-border-glow {
@@ -95,214 +67,44 @@
             border-color: rgba(197, 160, 89, 0.6);
         }
 
-        .thai-card-hover:hover {
-            box-shadow: 0 0 25px rgba(181, 18, 27, 0.2), 0 0 10px rgba(197, 160, 89, 0.1);
-            border-color: rgba(181, 18, 27, 0.5);
-        }
-
-        .malay-card-hover:hover {
-            box-shadow: 0 0 25px rgba(252, 193, 0, 0.15), 0 0 10px rgba(197, 160, 89, 0.1);
-            border-color: rgba(252, 193, 0, 0.5);
-        }
-
-        /* Destination stripe accent */
-        .thai-stripe {
-            background: linear-gradient(90deg, #B5121B 33%, #FFFFFF 33% 66%, #2D2A86 66%);
-        }
-
-        .malay-stripe {
-            background: linear-gradient(180deg, #CC0001 14.28%, #fff 14.28% 28.57%, #CC0001 28.57% 42.86%, #fff 42.86% 57.14%, #CC0001 57.14% 71.43%, #fff 71.43% 85.71%, #CC0001 85.71%);
-        }
-
-        /* Ornate border top on cards */
-        .thai-dest-card {
-            border-top: 3px solid #B5121B;
-            position: relative;
-        }
-        .thai-dest-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #B5121B, #C5A059, #2D2A86);
-        }
-
-        .malay-dest-card {
-            border-top: 3px solid #FCC100;
-            position: relative;
-        }
-        .malay-dest-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #CC0001, #FCC100, #00205C);
-        }
-
-        /* Animated shimmer for banners */
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .shimmer-text {
-            background: linear-gradient(90deg, #C5A059, #F9E4A0, #FCC100, #C5A059, #B5121B, #C5A059);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 4s linear infinite;
-        }
-
-        /* Temple silhouette decorative element */
-        .temple-silhouette {
-            opacity: 0.04;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 250px;
-            height: 200px;
-        }
-
-        /* Lotus petal animation */
-        @keyframes float-lotus {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
-        }
-        .float-lotus { animation: float-lotus 6s ease-in-out infinite; }
-
-        /* Flag pill badges */
-        .flag-thai {
-            background: linear-gradient(135deg, #B5121B 33%, #fff 33% 66%, #2D2A86 66%);
-        }
-        .flag-malay {
-            background: linear-gradient(135deg, #CC0001 40%, #FCC100 40%);
-        }
-
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050916; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030611;
+        }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #B5121B, #C5A059);
+            background: #172a5a;
             border-radius: 4px;
-            border: 2px solid #050916;
+            border: 2px solid #030611;
         }
-        ::-webkit-scrollbar-thumb:hover { background: #FCC100; }
-
-        /* Waving flag animation */
-        @keyframes wave-flag {
-            0%, 100% { transform: skewY(0deg); }
-            25% { transform: skewY(1deg); }
-            75% { transform: skewY(-1deg); }
-        }
-        .wave-flag { animation: wave-flag 3s ease-in-out infinite; }
-
-        /* Spin animation */
-        @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow { animation: spin-slow 8s linear infinite; }
-
-        /* Category destination tab active styles */
-        .dest-tab-thai { background: linear-gradient(135deg, #B5121B, #8B0D13); border-color: #B5121B; color: white; }
-        .dest-tab-malay { background: linear-gradient(135deg, #CC0001, #FCC100); border-color: #FCC100; color: #00205C; }
-
-        /* Star and moon for Malaysia */
-        .moon-star {
-            position: relative;
-            display: inline-block;
-            color: #FCC100;
-        }
-
-        /* Product card origin indicator */
-        .origin-badge-thai {
-            background: linear-gradient(90deg, #B5121B, #8B0D13);
-            color: white;
-        }
-        .origin-badge-malay {
-            background: linear-gradient(90deg, #CC0001, #C07000);
-            color: #FFF7CC;
-        }
-
-        /* Petronas twin tower silhouette */
-        .petronas-silhouette {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            opacity: 0.04;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
         }
     </style>
 </head>
 <body class="text-slate-200 min-h-screen flex flex-col selection:bg-gold/30 selection:text-white">
 
-    <!-- GLOBAL NOTIFICATION BANNER - THAILAND & MALAYSIA THEMED -->
-    <div class="relative overflow-hidden bg-gradient-to-r from-thai-red via-navy-900 to-malay-blue text-white text-center py-2.5 px-4 text-xs font-semibold tracking-wider uppercase">
-        <div class="flex items-center justify-center gap-3">
-            <!-- Thai flag stripe accent -->
-            <span class="flex gap-0.5 items-center opacity-80">
-                <span class="inline-block w-3 h-4 rounded-sm overflow-hidden">
-                    <span class="block w-full h-1/3 bg-thai-red"></span>
-                    <span class="block w-full h-1/3 bg-white"></span>
-                    <span class="block w-full h-1/3 bg-thai-blue"></span>
-                </span>
-            </span>
-            <span class="shimmer-text font-bold">✦ Jastip Eksklusif Bangkok &amp; Malaysia — Langsung dari Sumbernya! ✦</span>
-            <!-- Malaysian flag accent -->
-            <span class="flex gap-0.5 items-center opacity-80">
-                <span class="inline-block w-3 h-4 rounded-sm overflow-hidden flex flex-col">
-                    <span class="block w-full h-1/4 bg-malay-red"></span>
-                    <span class="block w-full h-1/4 bg-white"></span>
-                    <span class="block w-full h-1/4 bg-malay-red"></span>
-                    <span class="block w-full h-1/4 bg-white"></span>
-                </span>
-            </span>
-        </div>
+    <!-- GLOBAL NOTIFICATION BANNER -->
+    <div class="bg-gradient-to-r from-gold-900 via-gold-700 to-gold-900 text-gold-100 text-center py-2 px-4 text-xs font-semibold tracking-wider uppercase">
+        <i class="fa-solid fa-crown mr-1.5 animate-pulse"></i> Nikmati Pengalaman Jasa Titip Eksklusif Bersama FD.HUNT
     </div>
 
     <!-- MAIN HEADER NAVIGATION -->
-    <header class="sticky top-0 z-40 bg-navy-950/90 backdrop-blur-xl border-b border-gold-500/15 shadow-lg shadow-black/40">
-        <!-- Decorative top border with Thailand & Malaysia colors -->
-        <div class="h-0.5 bg-gradient-to-r from-thai-red via-gold to-malay-yellow opacity-70"></div>
+    <header class="sticky top-0 z-40 bg-navy-950/80 backdrop-blur-xl border-b border-gold-500/15 shadow-lg shadow-black/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-
-            <!-- Brand Logo with destination accent -->
+            
+            <!-- Brand Monogram logo inspired by 06A1EC9E-3C28-4C81-90C1-0912F2FD0F14_4_5005_c.jpeg -->
             <div class="flex items-center gap-3">
-                <div class="relative w-13 h-13 group">
-                    <div class="w-12 h-12 bg-gradient-to-br from-navy-800 to-navy-950 border border-gold-500/40 rounded-xl flex items-center justify-center text-gold shadow-lg shadow-gold-500/10 relative overflow-hidden">
-                        <!-- Lotus petal background hint -->
-                        <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 48 48" fill="none">
-                            <path d="M24 4 Q30 16 24 24 Q18 16 24 4z" fill="#C5A059"/>
-                            <path d="M24 44 Q30 32 24 24 Q18 32 24 44z" fill="#C5A059"/>
-                            <path d="M4 24 Q16 30 24 24 Q16 18 4 24z" fill="#C5A059"/>
-                            <path d="M44 24 Q32 30 24 24 Q32 18 44 24z" fill="#C5A059"/>
-                        </svg>
-                        <span class="font-luxury font-extrabold text-xl tracking-tighter text-gold luxury-text-glow z-10">FD</span>
-                    </div>
-                    <!-- Small destination flags stacked on corner -->
-                    <div class="absolute -bottom-1 -right-1 flex gap-0.5">
-                        <div class="w-4 h-3 rounded-sm overflow-hidden shadow-md border border-black/20 wave-flag">
-                            <div class="w-full h-1/3 bg-thai-red"></div>
-                            <div class="w-full h-1/3 bg-white"></div>
-                            <div class="w-full h-1/3 bg-thai-blue"></div>
-                        </div>
-                        <div class="w-4 h-3 rounded-sm overflow-hidden shadow-md border border-black/20 wave-flag" style="animation-delay:0.5s">
-                            <div class="flex h-full">
-                                <div class="w-2/5 bg-malay-blue flex items-center justify-center">
-                                    <span style="font-size:5px; color:#FCC100; line-height:1">☽</span>
-                                </div>
-                                <div class="w-3/5 flex flex-col">
-                                    <div class="flex-1 bg-malay-red"></div>
-                                    <div class="flex-1 bg-white"></div>
-                                    <div class="flex-1 bg-malay-red"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="relative w-12 h-12 bg-gradient-to-br from-navy-800 to-navy-950 border border-gold-500/30 rounded-xl flex items-center justify-center text-gold shadow-lg shadow-gold-500/5">
+                    <!-- Compass star outline -->
+                    <i class="fa-solid fa-compass absolute text-gold-500/10 text-3xl"></i>
+                    <span class="font-luxury font-extrabold text-xl tracking-tighter text-gold luxury-text-glow z-10">FD</span>
                 </div>
                 <div>
-                    <h1 class="font-luxury font-bold text-sm sm:text-base tracking-widest text-gold leading-none luxury-text-glow">FD.HUNT</h1>
-                    <span class="text-[10px] text-slate-400 font-medium tracking-widest uppercase">🇹🇭 Bangkok · 🇲🇾 Malaysia</span>
+                    <h1 class="font-luxury font-bold text-sm sm:text-base tracking-widest text-gold leading-none">FD.HUNT</h1>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-widest uppercase">Jastip Adventures</span>
                 </div>
             </div>
 
@@ -310,7 +112,7 @@
             <div class="flex items-center gap-4">
                 <!-- Search box Desktop -->
                 <div class="relative hidden md:block w-80">
-                    <input type="text" id="searchDesktop" placeholder="Cari produk Bangkok atau Malaysia..."
+                    <input type="text" id="searchDesktop" placeholder="Cari item fesyen atau makanan..." 
                         class="w-full pl-11 pr-4 py-2.5 bg-navy-900/90 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
                 </div>
@@ -324,232 +126,95 @@
                 <!-- Cart Widget Button -->
                 <button onclick="toggleCartPanel(true)" class="relative p-3 bg-navy-900/90 border border-gold-500/20 hover:bg-navy-800 text-gold rounded-xl transition-all shadow-md">
                     <i class="fa-solid fa-basket-shopping text-lg"></i>
-                    <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-thai-red to-red-500 text-white text-[10px] font-bold w-5.5 h-5.5 rounded-full flex items-center justify-center shadow-md border border-red-400 hidden">0</span>
+                    <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-600 to-red-500 text-white text-[10px] font-bold w-5.5 h-5.5 rounded-full flex items-center justify-center shadow-md border border-red-400 hidden">0</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION - THAILAND & MALAYSIA THEMED -->
-    <section class="relative py-16 px-4 overflow-hidden border-b border-gold-500/10" style="background: linear-gradient(160deg, #050916 0%, #0a1228 40%, #130a20 100%);">
-        <!-- Thai lotus pattern background -->
-        <div class="absolute inset-0 thai-pattern-bg opacity-60 pointer-events-none"></div>
-        <!-- Subtle red + yellow ambient glow -->
-        <div class="absolute top-0 left-0 w-80 h-80 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(181,18,27,0.08) 0%, transparent 70%);"></div>
-        <div class="absolute bottom-0 right-0 w-80 h-80 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(252,193,0,0.07) 0%, transparent 70%);"></div>
-
-        <!-- Temple silhouette SVG decoration -->
-        <svg class="temple-silhouette" viewBox="0 0 250 200" fill="#C5A059">
-            <!-- Simplified Thai temple roofline -->
-            <polygon points="125,10 145,60 105,60"/>
-            <polygon points="125,30 155,80 95,80"/>
-            <polygon points="125,55 170,105 80,105"/>
-            <rect x="95" y="105" width="60" height="80"/>
-            <rect x="85" y="135" width="20" height="50"/>
-            <rect x="145" y="135" width="20" height="50"/>
-        </svg>
-
-        <!-- Petronas twin tower silhouette (left side) -->
-        <svg class="petronas-silhouette" width="120" height="180" viewBox="0 0 120 180" fill="#FCC100">
-            <!-- Tower 1 -->
-            <rect x="10" y="40" width="20" height="130"/>
-            <polygon points="10,40 20,20 30,40"/>
-            <rect x="8" y="80" width="2" height="40"/>
-            <!-- Tower 2 -->
-            <rect x="90" y="40" width="20" height="130"/>
-            <polygon points="90,40 100,20 110,40"/>
-            <rect x="110" y="80" width="2" height="40"/>
-            <!-- Bridge -->
-            <rect x="28" y="90" width="64" height="8"/>
-        </svg>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <!-- Top badge -->
-            <div class="flex justify-center mb-8">
-                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-[11px] font-semibold uppercase tracking-widest" style="background: rgba(197,160,89,0.08); border-color: rgba(197,160,89,0.3); color: #D8C296;">
-                    <span class="text-base">🛕</span> PREMIUM SOURCING · BANGKOK & KUALA LUMPUR
-                    <span class="text-base">🏙️</span>
+    <!-- HERO SECTION -->
+    <section class="relative py-16 px-4 bg-gradient-to-b from-navy-900 to-navy-950 overflow-hidden border-b border-gold-500/10">
+        <!-- Subtle golden particles ambient glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold-500/5 via-transparent to-transparent pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="max-w-2xl text-center lg:text-left">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-[11px] font-semibold uppercase tracking-widest text-gold-300 mb-6">
+                    <i class="fa-solid fa-star-of-david text-gold animate-spin-slow"></i> PREMIUM SOURCING EXPEDITION
                 </span>
-            </div>
-
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-                <div class="max-w-2xl text-center lg:text-left">
-                    <h2 class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-widest luxury-text-glow mb-4 leading-tight" style="color: #C5A059;">
-                        JASTIP TERPERCAYA
-                    </h2>
-                    <h3 class="font-luxury text-xl sm:text-2xl lg:text-3xl font-bold tracking-widest mb-6 leading-tight shimmer-text">
-                        THAILAND &amp; MALAYSIA
-                    </h3>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 font-light max-w-xl">
-                        Kami menghadirkan produk autentik pilihan langsung dari pasar Bangkok 🇹🇭 dan pusat belanja Malaysia 🇲🇾 — fesyen terkini, kuliner khas, hingga oleh-oleh eksklusif yang sulit ditemukan di Indonesia.
-                    </p>
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold tracking-wider">
-                        <div class="flex items-center gap-2 px-4 py-2.5 rounded-lg border" style="background: rgba(181,18,27,0.1); border-color: rgba(181,18,27,0.3); color: #FFB3B6;">
-                            <span>🇹🇭</span> BANGKOK HITS
-                        </div>
-                        <div class="flex items-center gap-2 px-4 py-2.5 rounded-lg border" style="background: rgba(252,193,0,0.08); border-color: rgba(252,193,0,0.3); color: #FCC100;">
-                            <span>🇲🇾</span> MALAYSIA HAUL
-                        </div>
-                        <div class="flex items-center gap-2 px-4 py-2.5 rounded-lg border" style="background: rgba(197,160,89,0.08); border-color: rgba(197,160,89,0.2); color: #C5A059;">
-                            <i class="fa-solid fa-shield-halved"></i> 100% ORIGINAL
-                        </div>
+                <h2 class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-widest text-gold luxury-text-glow mb-6 leading-tight">
+                    ESTETIKA JASTIP KELAS DUNIA
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 font-light max-w-xl">
+                    Membawakan kurasi barang-barang eksklusif dari pusat perbelanjaan ternama langsung untuk Anda. Seluruh katalog terintegrasi *real-time* langsung dari Google Spreadsheet dengan sistem pemesanan langsung ke asisten belanja kami.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold tracking-wider">
+                    <div class="flex items-center gap-2 bg-navy-900/60 border border-gold-500/15 px-4 py-2.5 rounded-lg text-gold">
+                        <i class="fa-solid fa-shield-halved text-gold"></i> 100% ORIGINAL GUARANTEE
                     </div>
-                </div>
-
-                <!-- Destination cards -->
-                <div class="flex flex-col sm:flex-row lg:flex-col gap-4 w-full max-w-sm">
-                    <!-- Thailand Card -->
-                    <div class="flex-1 thai-dest-card bg-navy-950/70 p-5 rounded-2xl border border-slate-700/50 backdrop-blur-md shadow-2xl relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-24 h-24 opacity-5">
-                            <svg viewBox="0 0 100 100" fill="#B5121B"><circle cx="50" cy="50" r="45"/></svg>
-                        </div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-8 h-5 rounded-sm overflow-hidden shadow-md border border-black/20 flex-shrink-0">
-                                <div class="w-full h-1/3 bg-thai-red"></div>
-                                <div class="w-full h-1/3 bg-white"></div>
-                                <div class="w-full h-1/3 bg-thai-blue"></div>
-                            </div>
-                            <h4 class="font-luxury text-xs font-bold tracking-widest uppercase thai-glow" style="color: #FF8A8E;">🇹🇭 Bangkok, Thailand</h4>
-                        </div>
-                        <ul class="text-xs space-y-3 text-slate-300 font-light">
-                            <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
-                                <span class="text-slate-400">Status Voyage:</span>
-                                <strong class="text-thai-light tracking-wider" style="color:#E8D5A3;">AKTIF</strong>
-                            </li>
-                            <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
-                                <span class="text-slate-400">Cut Off Order:</span>
-                                <strong class="text-red-400">Tiap Hari Minggu</strong>
-                            </li>
-                            <li class="flex justify-between items-center">
-                                <span class="text-slate-400">Fokus:</span>
-                                <strong class="text-slate-200">Fashion · Kuliner · Snack</strong>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Malaysia Card -->
-                    <div class="flex-1 malay-dest-card bg-navy-950/70 p-5 rounded-2xl border border-slate-700/50 backdrop-blur-md shadow-2xl relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-24 h-24 opacity-5">
-                            <svg viewBox="0 0 100 100" fill="#FCC100"><polygon points="50,10 61,35 90,35 67,57 76,85 50,68 24,85 33,57 10,35 39,35"/></svg>
-                        </div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-8 h-5 rounded-sm overflow-hidden shadow-md border border-black/20 flex-shrink-0 flex">
-                                <div class="w-2/5 bg-malay-blue flex items-center justify-center">
-                                    <span style="font-size:6px; color:#FCC100; line-height:1">☽★</span>
-                                </div>
-                                <div class="w-3/5 flex flex-col">
-                                    <div class="flex-1 bg-malay-red"></div>
-                                    <div class="flex-1 bg-white"></div>
-                                    <div class="flex-1 bg-malay-red"></div>
-                                </div>
-                            </div>
-                            <h4 class="font-luxury text-xs font-bold tracking-widest uppercase malay-glow" style="color: #FCC100;">🇲🇾 Kuala Lumpur, MY</h4>
-                        </div>
-                        <ul class="text-xs space-y-3 text-slate-300 font-light">
-                            <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
-                                <span class="text-slate-400">Status Voyage:</span>
-                                <strong style="color:#FCC100;" class="tracking-wider">COMING SOON</strong>
-                            </li>
-                            <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
-                                <span class="text-slate-400">WhatsApp CS:</span>
-                                <strong class="text-slate-200 tracking-wider">+62 819-7966-033</strong>
-                            </li>
-                            <li class="flex justify-between items-center">
-                                <span class="text-slate-400">Fokus:</span>
-                                <strong class="text-slate-200">Kosmetik · Baju · Snack</strong>
-                            </li>
-                        </ul>
+                    <div class="flex items-center gap-2 bg-navy-900/60 border border-gold-500/15 px-4 py-2.5 rounded-lg text-gold">
+                        <i class="fa-solid fa-paper-plane text-gold"></i> AUTO WHATSAPP CHECKOUT
                     </div>
                 </div>
             </div>
 
-            <!-- Destination quick stats ribbon -->
-            <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div class="p-3 rounded-xl text-center border" style="background: rgba(181,18,27,0.08); border-color: rgba(181,18,27,0.2);">
-                    <div class="text-2xl mb-1">🛕</div>
-                    <div class="text-[10px] text-slate-400 tracking-wider">BANGKOK</div>
-                    <div class="font-luxury text-xs font-bold" style="color:#FF8A8E;">Street Market</div>
+            <!-- Luxury brand frame referencing the image metadata style -->
+            <div class="w-full max-w-sm bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 backdrop-blur-md shadow-2xl relative">
+                <div class="absolute -top-3 -right-3 w-8 h-8 bg-gold rounded-lg flex items-center justify-center text-navy-950 text-sm font-bold shadow-md">
+                    <i class="fa-solid fa-compass"></i>
                 </div>
-                <div class="p-3 rounded-xl text-center border" style="background: rgba(252,193,0,0.06); border-color: rgba(252,193,0,0.2);">
-                    <div class="text-2xl mb-1">🏙️</div>
-                    <div class="text-[10px] text-slate-400 tracking-wider">MALAYSIA</div>
-                    <div class="font-luxury text-xs font-bold" style="color:#FCC100;">Premium Mall</div>
-                </div>
-                <div class="p-3 rounded-xl text-center border" style="background: rgba(197,160,89,0.06); border-color: rgba(197,160,89,0.15);">
-                    <div class="text-2xl mb-1">✈️</div>
-                    <div class="text-[10px] text-slate-400 tracking-wider">PICKUP</div>
-                    <div class="font-luxury text-xs font-bold text-gold">Langsung Tangan</div>
-                </div>
-                <div class="p-3 rounded-xl text-center border" style="background: rgba(45,42,134,0.12); border-color: rgba(45,42,134,0.3);">
-                    <div class="text-2xl mb-1">💬</div>
-                    <div class="text-[10px] text-slate-400 tracking-wider">ORDER VIA</div>
-                    <div class="font-luxury text-xs font-bold text-green-400">WhatsApp</div>
-                </div>
+                <h4 class="font-luxury text-gold font-bold tracking-widest border-b border-gold-500/20 pb-3 mb-4 text-xs uppercase"><i class="fa-solid fa-clock mr-2 text-gold"></i> TRIP SCHEDULE</h4>
+                <ul class="text-xs space-y-4 text-slate-300 font-light">
+                    <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
+                        <span>Current Voyage:</span>
+                        <strong class="text-gold tracking-wider">BANGKOK HITS</strong>
+                    </li>
+                    <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
+                        <span>Closing Orders:</span>
+                        <strong class="text-red-400">Setiap Hari Minggu</strong>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>WhatsApp CS:</span>
+                        <strong class="text-gold tracking-wider">+62 819-7966-033</strong>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
-
-    <!-- DESTINATION BANNER STRIP -->
-    <div class="relative overflow-hidden py-3" style="background: linear-gradient(90deg, #0a0015, #100520, #0a0015);">
-        <div class="flex items-center max-w-7xl mx-auto px-4 gap-6">
-            <div class="h-6 flex-shrink-0 flex rounded overflow-hidden shadow-md border border-black/30">
-                <div class="w-8 h-full bg-thai-red"></div>
-                <div class="w-8 h-full bg-white"></div>
-                <div class="w-8 h-full bg-thai-blue"></div>
-            </div>
-            <div class="flex-1 h-px" style="background: linear-gradient(90deg, rgba(181,18,27,0.5), rgba(197,160,89,0.3), rgba(252,193,0,0.5));"></div>
-            <span class="text-[10px] font-bold tracking-widest uppercase text-gold opacity-70 flex-shrink-0">✦ AUTHENTIC SOURCE ✦</span>
-            <div class="flex-1 h-px" style="background: linear-gradient(90deg, rgba(252,193,0,0.5), rgba(197,160,89,0.3), rgba(0,32,92,0.5));"></div>
-            <div class="h-6 flex-shrink-0 flex rounded overflow-hidden shadow-md border border-black/30">
-                <div class="w-4 h-full" style="background: #00205C;"></div>
-                <div class="flex flex-col w-8">
-                    <div class="flex-1 bg-malay-red"></div>
-                    <div class="flex-1 bg-white"></div>
-                    <div class="flex-1 bg-malay-red"></div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- MAIN BODY SECTION -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         <!-- Search bar for mobile -->
         <div class="mb-8 block md:hidden">
             <div class="relative">
-                <input type="text" id="searchMobile" placeholder="Cari produk Bangkok atau Malaysia..."
+                <input type="text" id="searchMobile" placeholder="Cari item fesyen atau makanan..." 
                     class="w-full pl-11 pr-4 py-3 bg-navy-900 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 transition-all shadow-lg">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
             </div>
         </div>
 
         <!-- Filter category & statistics -->
-        <div class="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12 border-b pb-6" style="border-color: rgba(197,160,89,0.15);">
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto flex-wrap">
-                <button onclick="changeActiveCategory('all')" id="btn-all" class="cat-btn px-5 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all flex items-center gap-1.5">
-                    🌏 Semua Koleksi
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12 border-b border-slate-800 pb-6">
+            <div class="flex items-center gap-3 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
+                <button onclick="changeActiveCategory('all')" id="btn-all" class="cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all">
+                    Semua Koleksi
                 </button>
-                <button onclick="changeActiveCategory('fashion')" id="btn-fashion" class="cat-btn px-5 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all flex items-center gap-1.5">
-                    👗 Fashion
+                <button onclick="changeActiveCategory('fashion')" id="btn-fashion" class="cat-btn px-6 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all">
+                    Fashion
                 </button>
-                <button onclick="changeActiveCategory('food')" id="btn-food" class="cat-btn px-5 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all flex items-center gap-1.5">
-                    🍜 Food & Snack
-                </button>
-                <button onclick="changeActiveCategory('bangkok')" id="btn-bangkok" class="cat-btn px-5 py-2.5 border rounded-xl text-xs tracking-widest uppercase transition-all flex items-center gap-1.5" style="background: rgba(181,18,27,0.1); border-color: rgba(181,18,27,0.3); color: #FF8A8E;">
-                    🇹🇭 Bangkok
-                </button>
-                <button onclick="changeActiveCategory('malaysia')" id="btn-malaysia" class="cat-btn px-5 py-2.5 border rounded-xl text-xs tracking-widest uppercase transition-all flex items-center gap-1.5" style="background: rgba(252,193,0,0.08); border-color: rgba(252,193,0,0.3); color: #FCC100;">
-                    🇲🇾 Malaysia
+                <button onclick="changeActiveCategory('food')" id="btn-food" class="cat-btn px-6 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all">
+                    Food
                 </button>
             </div>
-
+            
             <div class="text-xs text-slate-400 font-light tracking-wide flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span id="productCounter" class="font-bold text-gold">0</span> item di katalog aktif
+                Terdapat <span id="productCounter" class="font-bold text-gold">0</span> barang di katalog aktif
             </div>
         </div>
 
         <!-- PRODUCT GRID -->
-        <div id="productGridContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-7">
+        <div id="productGridContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
             <!-- Products will be dynamically created here -->
         </div>
 
@@ -559,58 +224,13 @@
                 <i class="fa-solid fa-box-open text-3xl"></i>
             </div>
             <h3 class="font-luxury text-gold font-bold tracking-widest text-lg mb-2">Item Tidak Ditemukan</h3>
-            <p class="text-xs text-slate-400 font-light max-w-sm">Barang yang Anda cari belum tersedia. Coba kata kunci lain atau hubungi CS kami untuk jastip kustom dari Bangkok / Malaysia.</p>
+            <p class="text-xs text-slate-400 font-light max-w-sm">Barang yang Anda cari belum tersedia. Coba kata kunci lain atau silakan hubungi CS kami untuk jastip kustom.</p>
         </div>
     </main>
 
-    <!-- FOOTER - THAILAND & MALAYSIA THEMED -->
-    <footer class="text-slate-400 border-t mt-16 relative overflow-hidden" style="background: #050916; border-color: rgba(197,160,89,0.1);">
-        <!-- Colored top border -->
-        <div class="h-1" style="background: linear-gradient(90deg, #B5121B 33%, #C5A059 50%, #FCC100 66%, #00205C 100%);"></div>
-
-        <!-- Background batik pattern -->
-        <div class="absolute inset-0 batik-pattern-bg opacity-40 pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-            <!-- Destination Info Row -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-                <!-- Thailand destination -->
-                <div class="rounded-2xl p-5 border relative overflow-hidden" style="background: rgba(181,18,27,0.06); border-color: rgba(181,18,27,0.2);">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-7 rounded-sm overflow-hidden shadow-md border border-black/20 flex-shrink-0">
-                            <div class="w-full h-1/3 bg-thai-red"></div>
-                            <div class="w-full h-1/3 bg-white"></div>
-                            <div class="w-full h-1/3 bg-thai-blue"></div>
-                        </div>
-                        <div>
-                            <h5 class="font-luxury text-xs font-bold tracking-widest uppercase" style="color:#FF8A8E;">🇹🇭 Bangkok, Thailand</h5>
-                            <span class="text-[10px] text-slate-500">Street Market · Chatuchak · MBK</span>
-                        </div>
-                    </div>
-                    <p class="text-[11px] text-slate-400 leading-relaxed">Pusat fashion streetwear, camilan authentic Thai, dan produk lokal terbaik langsung dari jantung kota Bangkok.</p>
-                </div>
-                <!-- Malaysia destination -->
-                <div class="rounded-2xl p-5 border relative overflow-hidden" style="background: rgba(252,193,0,0.04); border-color: rgba(252,193,0,0.15);">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-7 rounded-sm overflow-hidden shadow-md border border-black/20 flex-shrink-0 flex">
-                            <div class="w-2/5 flex items-center justify-center" style="background:#00205C;">
-                                <span style="font-size:8px; color:#FCC100; line-height:1;">☽</span>
-                            </div>
-                            <div class="w-3/5 flex flex-col">
-                                <div class="flex-1 bg-malay-red"></div>
-                                <div class="flex-1 bg-white"></div>
-                                <div class="flex-1 bg-malay-red"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="font-luxury text-xs font-bold tracking-widest uppercase" style="color:#FCC100;">🇲🇾 Kuala Lumpur, Malaysia</h5>
-                            <span class="text-[10px] text-slate-500">KLCC · Pavilion · Sunway Pyramid</span>
-                        </div>
-                    </div>
-                    <p class="text-[11px] text-slate-400 leading-relaxed">Kosmetik, fashion premium, dan snack khas Malaysia dari pusat perbelanjaan ternama di Kuala Lumpur.</p>
-                </div>
-            </div>
-
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-slate-400 border-t border-gold-500/10 py-16 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
@@ -620,50 +240,34 @@
                         <h4 class="font-luxury font-bold text-white tracking-widest">FD.HUNT</h4>
                     </div>
                     <p class="text-xs leading-relaxed text-slate-400 font-light">
-                        Jastip terpercaya dari Bangkok & Kuala Lumpur. Kami mendatangkan produk autentik berkualitas tinggi langsung ke depan pintu Anda.
+                        Menginspirasi ekspedisi petualangan jastip berkelas sejak dahulu. Kami mendatangkan barang berkualitas global langsung ke depan pintu hunian Anda secara terpercaya.
                     </p>
-                    <!-- Mini flag row -->
-                    <div class="flex items-center gap-2 mt-3">
-                        <span class="text-[10px] text-slate-500 tracking-wider uppercase">Melayani:</span>
-                        <span class="text-sm">🇹🇭</span>
-                        <span class="text-sm">🇲🇾</span>
-                        <span class="text-[10px] text-slate-500">→</span>
-                        <span class="text-sm">🇮🇩</span>
-                    </div>
                 </div>
                 <div>
-                    <h5 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest mb-6">HUBUNGI KAMI</h5>
+                    <h5 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest mb-6">RECH OUT</h5>
                     <ul class="text-xs space-y-4 font-light">
                         <li class="flex items-center gap-3">
-                            <i class="fa-brands fa-whatsapp text-green-400 text-base"></i>
+                            <i class="fa-brands fa-whatsapp text-gold text-base"></i>
                             <a href="https://wa.me/628197966033" target="_blank" class="hover:text-gold transition-colors">+62 819-7966-033</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fa-regular fa-envelope text-gold"></i>
                             <span>hello@fdhunt.com</span>
                         </li>
-                        <li class="flex items-start gap-3 text-slate-500">
-                            <i class="fa-solid fa-clock text-gold mt-0.5"></i>
-                            <span>Order Cut-off: Setiap Hari Minggu<br>Pengiriman: Estimasi 7-14 Hari Kerja</span>
-                        </li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest mb-6">CARA PESAN</h5>
-                    <ol class="text-xs space-y-3 font-light text-slate-400 list-none">
-                        <li class="flex items-start gap-2"><span class="w-5 h-5 rounded-full bg-gold text-navy-950 text-[9px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span> Pilih item dari katalog</li>
-                        <li class="flex items-start gap-2"><span class="w-5 h-5 rounded-full bg-gold text-navy-950 text-[9px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span> Masuk ke keranjang &amp; isi data</li>
-                        <li class="flex items-start gap-2"><span class="w-5 h-5 rounded-full bg-gold text-navy-950 text-[9px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span> Otomatis kirim ke WhatsApp Admin</li>
-                    </ol>
-                    <div class="flex flex-wrap gap-3 text-2xl text-slate-500 mt-6">
+                    <h5 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest mb-6">LANCAR & MUDAH</h5>
+                    <p class="text-xs mb-4 font-light leading-relaxed">Pilih item favorit Anda, isi formulir pengiriman, dan kirimkan format orderan langsung ke WhatsApp Admin kami.</p>
+                    <div class="flex flex-wrap gap-3 text-2xl text-slate-500">
                         <i class="fa-brands fa-cc-visa hover:text-gold transition-colors"></i>
                         <i class="fa-brands fa-cc-mastercard hover:text-gold transition-colors"></i>
                         <i class="fa-solid fa-building-columns hover:text-gold transition-colors"></i>
                     </div>
                 </div>
             </div>
-            <div class="border-t mt-12 pt-8 text-center text-xs tracking-wider text-slate-500 font-light" style="border-color: rgba(197,160,89,0.1);">
-                <p>&copy; 2026 FD.HUNT Jastip Adventures · 🇹🇭 Bangkok &amp; 🇲🇾 Malaysia · All Rights Reserved.</p>
+            <div class="border-t border-slate-900 mt-12 pt-8 text-center text-xs tracking-wider text-slate-500 font-light">
+                <p>&copy; 2026 FD.HUNT Jastip Adventures. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -671,18 +275,17 @@
     <!-- CART PANEL DRAWER (RIGHT SIDE SLIDE-OVER) -->
     <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
         <div class="absolute inset-0 overflow-hidden">
+            <!-- Background overlay -->
             <div onclick="toggleCartPanel(false)" class="absolute inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity"></div>
+
             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                 <div class="pointer-events-auto w-screen max-w-md">
                     <div class="flex h-full flex-col bg-navy-950 border-l border-gold-500/20 shadow-2xl">
-                        <!-- Cart header with country flags -->
-                        <div class="px-6 py-5 border-b border-gold-500/10 flex items-center justify-between" style="background: linear-gradient(90deg, rgba(181,18,27,0.08), rgba(252,193,0,0.05));">
-                            <div>
-                                <h2 class="font-luxury text-gold font-bold tracking-widest text-sm uppercase">
-                                    <i class="fa-solid fa-cart-shopping mr-2"></i> Keranjang Anda
-                                </h2>
-                                <span class="text-[10px] text-slate-500 tracking-wider">🇹🇭 Bangkok · 🇲🇾 Malaysia</span>
-                            </div>
+                        <!-- Header -->
+                        <div class="px-6 py-6 border-b border-gold-500/10 flex items-center justify-between">
+                            <h2 class="font-luxury text-gold font-bold tracking-widest text-sm uppercase">
+                                <i class="fa-solid fa-cart-shopping mr-2"></i> Keranjang Anda
+                            </h2>
                             <button onclick="toggleCartPanel(false)" class="p-2 -m-2 text-slate-400 hover:text-gold transition-all">
                                 <i class="fa-solid fa-xmark text-xl"></i>
                             </button>
@@ -690,16 +293,18 @@
 
                         <!-- Items Body -->
                         <div class="flex-1 overflow-y-auto px-6 py-6">
-                            <div id="cartItemsList" class="space-y-6"></div>
-
+                            <div id="cartItemsList" class="space-y-6">
+                                <!-- Cart rows injected here -->
+                            </div>
+                            
                             <!-- Empty Cart view -->
                             <div id="cartEmptyMessage" class="flex flex-col items-center justify-center py-20 text-center">
                                 <div class="w-16 h-16 bg-navy-900 border border-gold-500/10 rounded-full flex items-center justify-center text-slate-600 mb-4 shadow-inner">
                                     <i class="fa-solid fa-cart-plus text-xl text-gold-500/30"></i>
                                 </div>
                                 <p class="text-xs font-semibold text-slate-300 uppercase tracking-widest">Keranjang Kosong</p>
-                                <p class="text-[11px] text-slate-500 mt-2 max-w-xs font-light">Temukan produk autentik dari 🇹🇭 Bangkok dan 🇲🇾 Malaysia di katalog kami!</p>
-                                <button onclick="toggleCartPanel(false)" class="mt-6 px-5 py-2.5 bg-gold hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-widest rounded-xl transition-all shadow-md">Lihat Katalog</button>
+                                <p class="text-[11px] text-slate-500 mt-2 max-w-xs font-light">Mari melangkah ke katalog jastip dan temukan item impian Anda!</p>
+                                <button onclick="toggleCartPanel(false)" class="mt-6 px-5 py-2.5 bg-gold hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-widest rounded-xl transition-all shadow-md">Belanja Sekarang</button>
                             </div>
                         </div>
 
@@ -710,10 +315,10 @@
                                 <p id="cartTotalPrice" class="font-bold text-gold text-base tracking-widest">Rp 0</p>
                             </div>
                             <p class="text-[11px] text-slate-500 mb-6 font-light leading-relaxed">
-                                <i class="fa-solid fa-circle-info text-gold/60 mr-1"></i> Harga final termasuk ongkir dan biaya jastip dikonfirmasi oleh Admin.
+                                <i class="fa-solid fa-circle-info text-gold/60 mr-1"></i> Harga estimasi jastip final akan dikonfirmasi kembali oleh asisten belanja CS kami.
                             </p>
-                            <button onclick="openShippingModal()" class="w-full flex items-center justify-center gap-3 rounded-xl px-6 py-4 text-xs font-bold uppercase tracking-widest shadow-xl transition-all" style="background: linear-gradient(135deg, #B5121B, #8B0D13); color: white;">
-                                <i class="fa-brands fa-whatsapp text-lg"></i> Proses Pembelian via WA
+                            <button onclick="openShippingModal()" class="w-full flex items-center justify-center gap-3 rounded-xl bg-gold hover:bg-gold-600 px-6 py-4 text-xs font-bold text-navy-950 uppercase tracking-widest shadow-xl shadow-gold-500/5 transition-all">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> Proses Pembelian
                             </button>
                         </div>
                     </div>
@@ -722,31 +327,28 @@
         </div>
     </div>
 
-    <!-- SHIPPING FORM MODAL -->
+    <!-- CUSTOM NOTIFICATION MODALS & CONFIRM BOXES -->
     <div id="shippingFormModal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
         <div class="fixed inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity" onclick="closeShippingModal()"></div>
         <div class="relative bg-navy-900 border border-gold-500/30 rounded-2xl max-w-md w-full shadow-2xl overflow-hidden z-10">
-            <div class="px-6 py-5 border-b border-gold-500/10 flex items-center justify-between" style="background: linear-gradient(90deg, rgba(181,18,27,0.1), rgba(252,193,0,0.05));">
-                <div>
-                    <h3 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-user-pen mr-2"></i> DATA PENGIRIMAN</h3>
-                    <span class="text-[10px] text-slate-500">🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia</span>
-                </div>
+            <div class="px-6 py-5 border-b border-gold-500/10 flex items-center justify-between bg-navy-950/40">
+                <h3 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-user-pen mr-2"></i> DATA PENGIRIMAN</h3>
                 <button onclick="closeShippingModal()" class="text-slate-400 hover:text-gold"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <form id="shippingForm" onsubmit="executeWhatsAppCheckout(event)" class="p-6 space-y-4">
                 <div>
                     <label class="block text-[10px] font-semibold text-gold uppercase tracking-wider mb-2" for="custName">Nama Penerima</label>
-                    <input type="text" id="custName" required placeholder="Contoh: Amanda Lovelia"
+                    <input type="text" id="custName" required placeholder="Contoh: Amanda Lovelia" 
                         class="w-full px-4 py-3 bg-navy-950 border border-gold-500/20 rounded-xl text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold/50 transition-all">
                 </div>
                 <div>
                     <label class="block text-[10px] font-semibold text-gold uppercase tracking-wider mb-2" for="custPhone">No. WhatsApp</label>
-                    <input type="tel" id="custPhone" required placeholder="Contoh: 08123456789"
+                    <input type="tel" id="custPhone" required placeholder="Contoh: 08123456789" 
                         class="w-full px-4 py-3 bg-navy-950 border border-gold-500/20 rounded-xl text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold/50 transition-all">
                 </div>
                 <div>
                     <label class="block text-[10px] font-semibold text-gold uppercase tracking-wider mb-2" for="custAddress">Alamat Lengkap</label>
-                    <textarea id="custAddress" required rows="3" placeholder="Jl. Kemang Raya No. 12, Mampang, Jakarta Selatan"
+                    <textarea id="custAddress" required rows="3" placeholder="Jl. Kemang Raya No. 12, Mampang, Jakarta Selatan" 
                         class="w-full px-4 py-3 bg-navy-950 border border-gold-500/20 rounded-xl text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold/50 transition-all resize-none"></textarea>
                 </div>
                 <div>
@@ -760,7 +362,7 @@
                 </div>
                 <div class="pt-4 border-t border-gold-500/10 flex gap-4">
                     <button type="button" onclick="closeShippingModal()" class="flex-1 py-3 border border-gold-500/20 hover:bg-navy-950 text-gold text-xs font-bold uppercase tracking-widest rounded-xl transition-all">Batal</button>
-                    <button type="submit" class="flex-1 py-3 text-white text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg transition-all flex items-center justify-center gap-2" style="background: linear-gradient(135deg, #B5121B, #8B0D13);">
+                    <button type="submit" class="flex-1 py-3 bg-gold hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-gold-500/5 transition-all flex items-center justify-center gap-2">
                         <i class="fa-solid fa-paper-plane"></i> KIRIM ORDER
                     </button>
                 </div>
@@ -774,30 +376,31 @@
         const GOOGLE_SHEET_ID = "1Suw18lMNgPzLRWA8GOEbaSznSY6hVBMXvACqhyH5IXo";
         const SPREADSHEET_GID = "450214844";
 
+        // Elegantly curated local backup system in case of offline / CORS issues
         const OFFLINE_PRODUCTS_FALLBACK = [
-            { id: 4, name: "Chiko Tomato", price: 50000, category: "food", origin: "bangkok", desc: "Camilan khas Thailand berkualitas tinggi" },
-            { id: 5, name: "Sandwich cheese", price: 50000, category: "food", origin: "bangkok", desc: "Kuliner lezat pilihan dari Bangkok" },
-            { id: 6, name: "Salted egg mochi", price: 60000, category: "food", origin: "malaysia", desc: "Snack premium khas Malaysia" },
-            { id: 7, name: "Sandwich beef cheese", price: 50000, category: "food", origin: "bangkok", desc: "Kuliner lezat pilihan dari Bangkok" },
-            { id: 8, name: "Chicken roll seaweed", price: 55000, category: "food", origin: "bangkok", desc: "Camilan khas Thailand berkualitas tinggi" },
-            { id: 9, name: "Burger beef", price: 55000, category: "food", origin: "bangkok", desc: "Kuliner lezat pilihan dari Bangkok" },
-            { id: 10, name: "Burger cheese", price: 55000, category: "food", origin: "bangkok", desc: "Kuliner lezat pilihan dari Bangkok" },
-            { id: 11, name: "Burger spicy", price: 55000, category: "food", origin: "bangkok", desc: "Kuliner lezat pilihan dari Bangkok" },
-            { id: 12, name: "Chicken finger Spicy", price: 55000, category: "food", origin: "bangkok", desc: "Camilan khas Thailand berkualitas tinggi" },
-            { id: 13, name: "Tama Spicy", price: 30000, category: "food", origin: "bangkok", desc: "Camilan khas Thailand berkualitas tinggi" },
-            { id: 14, name: "Tama Ori", price: 30000, category: "food", origin: "bangkok", desc: "Camilan khas Thailand berkualitas tinggi" },
-            { id: 15, name: "Kani", price: 50000, category: "food", origin: "bangkok", desc: "Kuliner premium dari Bangkok" },
-            { id: 16, name: "Sosis sapi", price: 50000, category: "food", origin: "bangkok", desc: "Produk daging pilihan dari Thailand" },
-            { id: 17, name: "Mie ok Squidgame", price: 30000, category: "food", origin: "malaysia", desc: "Mie instan viral asal Malaysia" },
-            { id: 18, name: "Tuna salmon", price: 55000, category: "food", origin: "bangkok", desc: "Produk seafood premium dari Bangkok" },
-            { id: 19, name: "Chicken Skin", price: 30000, category: "food", origin: "bangkok", desc: "Camilan khas Thailand berkualitas tinggi" },
-            { id: 20, name: "Kunna", price: 45000, category: "food", origin: "malaysia", desc: "Snack populer dari Malaysia" },
-            { id: 21, name: "Euro Cake", price: 40000, category: "food", origin: "malaysia", desc: "Kue premium khas Malaysia" },
-            { id: 22, name: "Matcha 5 Sachet", price: 50000, category: "food", origin: "bangkok", desc: "Minuman matcha autentik dari Bangkok" },
-            { id: 23, name: "Meiji", price: 50000, category: "food", origin: "malaysia", desc: "Produk Meiji dari Malaysia" },
-            { id: 24, name: "Celana Gajah", price: 100000, category: "fashion", origin: "bangkok", desc: "Fashion streetwear khas Bangkok" },
-            { id: 25, name: "Lotus Dorbua Spicy", price: 30000, category: "food", origin: "bangkok", desc: "Camilan Lotus Dorbua authentic Thailand" },
-            { id: 26, name: "My Chewy Youghurt", price: 50000, category: "food", origin: "malaysia", desc: "Yogurt chewy populer dari Malaysia" }
+            { id: 4, name: "Chiko Tomato", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 5, name: "Sandwich cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 6, name: "Salted egg mochi", price: 60000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 7, name: "Sandwich beef cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 8, name: "Chicken roll seaweed", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 9, name: "Burger beef", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 10, name: "Burger cheese", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 11, name: "Burger spicy", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 12, name: "Chicken finger Spicy", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 13, name: "Tama Spicy", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 14, name: "Tama Ori", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 15, name: "Kani", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 16, name: "Sosis sapi", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 17, name: "Mie ok Squidgame", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 18, name: "Tuna salmon", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 19, name: "Chicken Skin", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 20, name: "Kunna", price: 45000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 21, name: "Euro Cake", price: 40000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 22, name: "Matcha 5 Sachet", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 23, name: "Meiji", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 24, name: "Celana Gajah", price: 100000, category: "fashion", desc: "Produk lifestyle & fashion terkurasi" },
+            { id: 25, name: "Lotus Dorbua Spicy", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 26, name: "My Chewy Youghurt", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" }
         ];
 
         let activeCategory = 'all';
@@ -805,6 +408,7 @@
         let activeDatabase = [];
         let shoppingCart = [];
 
+        // Application Startup
         window.addEventListener('load', async () => {
             await initializeDatabase();
             setupSearchEngine();
@@ -812,8 +416,11 @@
         });
 
         async function initializeDatabase() {
+            // Set fallback as initial
             activeDatabase = [...OFFLINE_PRODUCTS_FALLBACK];
             renderProductsToGrid();
+
+            // Attempt dynamic live sheet sync
             await syncGoogleSheetData(true);
         }
 
@@ -826,15 +433,17 @@
             try {
                 const response = await fetch(queryUrl);
                 if (!response.ok) throw new Error("HTTP error network request blocked.");
-
+                
                 const responseText = await response.text();
+                // Extract pure JSON
                 const cleanJsonStr = responseText.substring(responseText.indexOf('{'), responseText.lastIndexOf('}') + 1);
                 const parsedResult = JSON.parse(cleanJsonStr);
-
+                
                 const tableRows = parsedResult.table.rows;
                 if (!tableRows || tableRows.length === 0) throw new Error("No data found in spreadsheet.");
 
                 const importedProducts = [];
+                // Process Row 4 to Row 43 (Indices 3 to 42 in 0-indexed rows)
                 const startRowIdx = 3;
                 const endRowIdx = Math.min(tableRows.length, 43);
 
@@ -842,12 +451,14 @@
                     const rowData = tableRows[i];
                     if (!rowData || !rowData.c) continue;
 
+                    // Extracted schema matching custom instructions: C: Nama, D: Foto, F: Harga Mark Up
                     const colName = rowData.c[2] ? rowData.c[2].v : '';
                     const colPhoto = rowData.c[3] ? rowData.c[3].v : '';
                     const colPrice = rowData.c[5] ? rowData.c[5].v : 0;
 
-                    if (!colName) continue;
+                    if (!colName) continue; // Skip blank items
 
+                    // Clean & cast price
                     let priceVal = 0;
                     if (typeof colPrice === 'number') {
                         priceVal = colPrice;
@@ -855,8 +466,10 @@
                         priceVal = parseInt(String(colPrice).replace(/[^\d]/g, ''), 10) || 0;
                     }
 
+                    // Format image link
                     let imageUrl = '';
                     if (colPhoto && String(colPhoto).startsWith('http')) {
+                        // Support google drive bypass natively
                         if (String(colPhoto).includes('drive.google.com')) {
                             const driveIdMatch = String(colPhoto).match(/\/file\/d\/([^\/]+)/) || String(colPhoto).match(/id=([^&]+)/);
                             if (driveIdMatch && driveIdMatch[1]) {
@@ -867,34 +480,29 @@
                         }
                     }
 
+                    // Strict auto-classification to 2 categories: Fashion and Food
                     let catVal = 'fashion';
                     const lowerName = colName.toLowerCase();
                     const foodTriggers = ['chiko', 'sandwich', 'mochi', 'roll', 'burger', 'spicy', 'tama', 'kani', 'sosis', 'mie', 'squidgame', 'tuna', 'salmon', 'skin', 'kunna', 'cake', 'matcha', 'meiji', 'lotus', 'dorbua', 'chewy', 'youghurt', 'snack', 'makanan', 'camilan', 'biscuit', 'coklat', 'chocolate', 'drink', 'beverage', 'tea', 'coffee', 'ramen', 'instant', 'tomato', 'cheese', 'beef', 'chicken', 'egg', 'seaweed', 'squid', 'food', 'makan'];
+                    
                     if (foodTriggers.some(keyword => lowerName.includes(keyword))) {
                         catVal = 'food';
                     }
-
-                    // Auto-detect origin from product name keywords
-                    const malayTriggers = ['mie ok', 'squidgame', 'kunna', 'euro cake', 'meiji', 'chewy', 'youghurt'];
-                    const originVal = malayTriggers.some(kw => lowerName.includes(kw)) ? 'malaysia' : 'bangkok';
 
                     importedProducts.push({
                         id: i + 1,
                         name: colName,
                         price: priceVal,
                         category: catVal,
-                        origin: originVal,
                         image: imageUrl,
-                        desc: originVal === 'malaysia'
-                            ? (catVal === 'food' ? 'Snack & kuliner premium dari Malaysia' : 'Fashion & lifestyle khas Malaysia')
-                            : (catVal === 'food' ? 'Camilan & kuliner autentik dari Bangkok' : 'Fashion streetwear terkini dari Bangkok')
+                        desc: catVal === 'food' ? 'Camilan & kuliner khas berkualitas tinggi' : 'Produk lifestyle & fashion terkurasi'
                     });
                 }
 
                 if (importedProducts.length > 0) {
                     activeDatabase = importedProducts;
                     renderProductsToGrid();
-                    if (!isSilent) showAmbientFeedback("Sinkronisasi katalog berhasil diperbarui!");
+                    if (!isSilent) showAmbientFeedback("Sinkronisasi database berhasil diperbarui!");
                 }
             } catch (err) {
                 console.warn("Spreadsheet connection blocked or offline, loaded secure backup catalog.", err);
@@ -910,13 +518,8 @@
             grid.innerHTML = '';
 
             const filteredData = activeDatabase.filter(p => {
-                let isCatMatch = true;
-                if (activeCategory === 'all') isCatMatch = true;
-                else if (activeCategory === 'bangkok') isCatMatch = p.origin === 'bangkok';
-                else if (activeCategory === 'malaysia') isCatMatch = p.origin === 'malaysia';
-                else isCatMatch = p.category === activeCategory;
-
-                const isSearchMatch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                const isCatMatch = activeCategory === 'all' || p.category === activeCategory;
+                const isSearchMatch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                                       p.desc.toLowerCase().includes(searchQuery.toLowerCase());
                 return isCatMatch && isSearchMatch;
             });
@@ -934,51 +537,40 @@
 
             filteredData.forEach(p => {
                 const card = document.createElement('div');
-                const isThai = p.origin === 'bangkok';
-                const hoverClass = isThai ? 'thai-card-hover' : 'malay-card-hover';
-                card.className = `group relative bg-navy-950/60 border border-gold-500/10 rounded-2xl overflow-hidden backdrop-blur-md flex flex-col justify-between transition-all duration-400 ${hoverClass}`;
-
+                card.className = "group relative bg-navy-950/60 border border-gold-500/10 hover:border-gold-500/30 rounded-2xl overflow-hidden backdrop-blur-md gold-border-glow flex flex-col justify-between";
+                
+                // Visual container (Empty/placeholder set by default to match aesthetics requested)
                 let imageElement = '';
                 if (p.image && p.image !== '') {
-                    imageElement = `<img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImageLoadError(this, '${p.name}', '${p.origin}')">`;
+                    // Try loaded image
+                    imageElement = `
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImageLoadError(this, '${p.name}')">
+                    `;
                 } else {
-                    imageElement = createPremiumPlaceholderSvg(p.name, p.origin);
+                    // Premium Gold & Navy monogram vector placeholder
+                    imageElement = createPremiumPlaceholderSvg(p.name);
                 }
 
-                // Origin flag badge
-                const originBadge = isThai
-                    ? `<span class="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-md origin-badge-thai shadow-md flex items-center gap-1">🇹🇭 BKK</span>`
-                    : `<span class="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-md origin-badge-malay shadow-md flex items-center gap-1">🇲🇾 MY</span>`;
-
-                // Top accent line per origin
-                const accentLine = isThai
-                    ? `<div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, #B5121B, #C5A059, #2D2A86);"></div>`
-                    : `<div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, #CC0001, #FCC100, #00205C);"></div>`;
-
                 card.innerHTML = `
-                    ${accentLine}
                     <div>
                         <div class="aspect-square w-full bg-navy-900 border-b border-gold-500/10 flex items-center justify-center relative overflow-hidden select-none">
                             ${imageElement}
-                            <span class="absolute top-2 left-2 text-navy-950 text-[9px] font-bold tracking-widest px-2.5 py-1 rounded-md uppercase shadow-md" style="background: #C5A059;">Original</span>
-                            ${originBadge}
+                            <span class="absolute top-3 left-3 bg-gold text-navy-950 text-[9px] font-bold tracking-widest px-2.5 py-1 rounded-md uppercase">Original</span>
                         </div>
-                        <div class="p-4">
-                            <span class="text-[9px] font-semibold tracking-widest uppercase mb-1.5 block flex items-center gap-1 ${isThai ? 'text-red-400' : 'text-yellow-400'}">
-                                ${isThai ? '🇹🇭 Bangkok' : '🇲🇾 Malaysia'} · ${p.category}
-                            </span>
+                        <div class="p-5">
+                            <span class="text-[9px] text-gold font-semibold tracking-widest uppercase mb-1.5 block">${p.category}</span>
                             <h3 class="font-luxury font-bold text-sm text-slate-100 line-clamp-1 group-hover:text-gold transition-colors" title="${p.name}">${p.name}</h3>
                             <p class="text-[11px] text-slate-400 font-light line-clamp-2 mt-1.5 leading-relaxed">${p.desc}</p>
                         </div>
                     </div>
-                    <div class="p-4 pt-0">
-                        <div class="flex items-center justify-between gap-3 mt-3 pt-3" style="border-top: 1px solid rgba(197,160,89,0.12);">
+                    <div class="p-5 pt-0">
+                        <div class="flex items-center justify-between gap-4 mt-4 pt-4 border-t border-slate-800/60">
                             <div class="flex flex-col">
                                 <span class="text-[9px] text-slate-500 tracking-wider">HARGA MARK-UP</span>
                                 <span class="text-xs sm:text-sm font-extrabold text-gold tracking-wider">${formatRupiah(p.price)}</span>
                             </div>
-                            <button onclick="addSelectedProductToCart(${p.id})" class="p-2.5 active:scale-95 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1" style="background: ${isThai ? 'linear-gradient(135deg,#B5121B,#8B0D13)' : 'linear-gradient(135deg,#CC6B00,#FCC100); color:#00205C;'}">
-                                <i class="fa-solid fa-plus text-[10px]"></i> Add
+                            <button onclick="addSelectedProductToCart(${p.id})" class="p-3 bg-gold hover:bg-gold-600 active:scale-95 text-navy-950 rounded-xl text-xs font-bold transition-all shadow-md">
+                                <i class="fa-solid fa-plus"></i> Add
                             </button>
                         </div>
                     </div>
@@ -987,42 +579,32 @@
             });
         }
 
-        function createPremiumPlaceholderSvg(name, origin) {
+        // Beautiful dynamic vector generator for placeholders
+        function createPremiumPlaceholderSvg(name) {
             const initials = name.substring(0, 2).toUpperCase();
-            const isThai = origin === 'bangkok';
-            const color1 = isThai ? '#B5121B' : '#CC0001';
-            const color2 = isThai ? '#2D2A86' : '#FCC100';
-            const bgColor = isThai ? 'rgba(181,18,27,0.06)' : 'rgba(252,193,0,0.04)';
-
             return `
-                <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center select-none relative" style="background: linear-gradient(135deg, #050916, #0a1228);">
-                    <svg class="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                <div class="w-full h-full bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 flex flex-col items-center justify-center p-6 text-center select-none relative">
+                    <svg class="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
                         <defs>
-                            <pattern id="grid-${initials}" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="${color1}" stroke-width="0.5"/>
+                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#C5A059" stroke-width="0.5"/>
                             </pattern>
                         </defs>
-                        <rect width="100%" height="100%" fill="url(#grid-${initials})" />
+                        <rect width="100%" height="100%" fill="url(#grid)" />
                     </svg>
-                    <!-- Lotus petals SVG hint -->
-                    <svg class="absolute inset-0 w-full h-full opacity-[0.06]" viewBox="0 0 100 100">
-                        <path d="M50 20 Q60 40 50 50 Q40 40 50 20z" fill="${color1}"/>
-                        <path d="M50 80 Q60 60 50 50 Q40 60 50 80z" fill="${color2}"/>
-                        <path d="M20 50 Q40 60 50 50 Q40 40 20 50z" fill="${color1}"/>
-                        <path d="M80 50 Q60 60 50 50 Q60 40 80 50z" fill="${color2}"/>
-                    </svg>
-                    <div class="w-14 h-14 rounded-full border flex items-center justify-center font-luxury font-bold text-lg mb-2 z-10 relative" style="border-color: rgba(197,160,89,0.3); color: #C5A059; background: rgba(5,9,22,0.8);">
+                    <div class="w-14 h-14 rounded-full border border-gold-500/30 flex items-center justify-center text-gold luxury-text-glow font-luxury font-bold text-lg mb-2 z-10 bg-navy-950/80">
                         ${initials}
                     </div>
-                    <span class="text-[9px] tracking-widest font-luxury uppercase z-10" style="color: ${color1}; opacity: 0.6;">${isThai ? '🇹🇭 BANGKOK' : '🇲🇾 MALAYSIA'}</span>
+                    <span class="text-[9px] text-gold-500/40 tracking-widest font-luxury uppercase z-10">FD.HUNT BOUTIQUE</span>
                 </div>
             `;
         }
 
-        function handleImageLoadError(imgObj, name, origin) {
+        // Image load error catcher
+        function handleImageLoadError(imgObj, name) {
             const container = imgObj.parentElement;
             if (container) {
-                container.innerHTML = createPremiumPlaceholderSvg(name, origin || 'bangkok');
+                container.innerHTML = createPremiumPlaceholderSvg(name);
             }
         }
 
@@ -1048,26 +630,18 @@
             activeCategory = newCategory;
 
             document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.className = "cat-btn px-5 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all flex items-center gap-1.5";
+                btn.className = "cat-btn px-6 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all";
             });
 
             const currentActiveBtn = document.getElementById(`btn-${newCategory}`);
             if (currentActiveBtn) {
-                if (newCategory === 'bangkok') {
-                    currentActiveBtn.style.cssText = 'background: linear-gradient(135deg,#B5121B,#8B0D13); border-color: #B5121B; color: white;';
-                    currentActiveBtn.className = "cat-btn px-5 py-2.5 rounded-xl text-xs tracking-widest uppercase shadow-md transition-all flex items-center gap-1.5";
-                } else if (newCategory === 'malaysia') {
-                    currentActiveBtn.style.cssText = 'background: linear-gradient(135deg,#CC6B00,#FCC100); border-color: #FCC100; color: #00205C;';
-                    currentActiveBtn.className = "cat-btn px-5 py-2.5 rounded-xl text-xs tracking-widest uppercase shadow-md transition-all flex items-center gap-1.5";
-                } else {
-                    currentActiveBtn.style.cssText = '';
-                    currentActiveBtn.className = "cat-btn px-5 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all flex items-center gap-1.5";
-                }
+                currentActiveBtn.className = "cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all";
             }
 
             renderProductsToGrid();
         }
 
+        // Toggle Drawer Slide-over Panel
         function toggleCartPanel(isOpen) {
             const drawer = document.getElementById('cartDrawer');
             if (isOpen) {
@@ -1091,8 +665,7 @@
             }
 
             updateCartInterface();
-            const flag = product.origin === 'malaysia' ? '🇲🇾' : '🇹🇭';
-            showAmbientFeedback(`${flag} ${product.name} telah masuk ke keranjang.`);
+            showAmbientFeedback(`${product.name} telah masuk ke keranjang.`);
         }
 
         function adjustQty(pId, delta) {
@@ -1130,20 +703,15 @@
                     cumulativeQty += item.qty;
                     cumulativePrice += item.product.price * item.qty;
 
-                    const isThai = item.product.origin === 'bangkok';
-                    const flag = isThai ? '🇹🇭' : '🇲🇾';
-                    const accentColor = isThai ? '#B5121B' : '#FCC100';
-
                     const row = document.createElement('div');
                     row.className = "flex items-center justify-between gap-4 py-4 border-b border-slate-800/60";
                     row.innerHTML = `
                         <div class="flex items-center gap-3">
-                            <div class="w-11 h-11 bg-navy-900 border rounded-xl flex items-center justify-center text-xs font-luxury font-bold text-gold relative overflow-hidden" style="border-color: ${accentColor}40;">
-                                <div class="absolute top-0 left-0 right-0 h-0.5" style="background: ${accentColor};"></div>
+                            <div class="w-11 h-11 bg-navy-900 border border-gold-500/10 rounded-xl flex items-center justify-center text-xs font-luxury font-bold text-gold">
                                 ${item.product.name.substring(0, 2).toUpperCase()}
                             </div>
                             <div>
-                                <h4 class="text-xs font-bold text-slate-100 line-clamp-1 max-w-[150px]">${flag} ${item.product.name}</h4>
+                                <h4 class="text-xs font-bold text-slate-100 line-clamp-1 max-w-[150px]">${item.product.name}</h4>
                                 <span class="text-[10px] text-gold tracking-wide mt-0.5 block">${formatRupiah(item.product.price)}</span>
                             </div>
                         </div>
@@ -1165,18 +733,21 @@
             return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(rawNum);
         }
 
+        // Custom notification toaster without using alert()
         function showAmbientFeedback(msg) {
             const existingToast = document.getElementById('customToasterNotification');
             if (existingToast) existingToast.remove();
 
             const toast = document.createElement('div');
             toast.id = "customToasterNotification";
-            toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 bg-navy-950 border text-slate-200 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 text-xs tracking-wide z-50 transition-all duration-300 transform translate-y-12 opacity-0 font-medium";
-            toast.style.borderColor = 'rgba(181,18,27,0.5)';
-            toast.innerHTML = `<span style="color:#C5A059;" class="text-base">✦</span> <span>${msg}</span>`;
+            toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 bg-navy-950 border border-gold text-slate-200 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 text-xs tracking-wide z-50 transition-all duration-300 transform translate-y-12 opacity-0 font-medium";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-gold text-base"></i> <span>${msg}</span>`;
             document.body.appendChild(toast);
 
-            setTimeout(() => toast.classList.remove('translate-y-12', 'opacity-0'), 50);
+            setTimeout(() => {
+                toast.classList.remove('translate-y-12', 'opacity-0');
+            }, 50);
+
             setTimeout(() => {
                 toast.classList.add('translate-y-12', 'opacity-0');
                 setTimeout(() => toast.remove(), 300);
@@ -1191,8 +762,7 @@
         function closeShippingModal() {
             document.getElementById('shippingFormModal').classList.add('hidden');
         }
-
-        function executeWhatsAppCheckout(event) {
+        async function executeWhatsAppCheckout(event) {
             event.preventDefault();
 
             const name = document.getElementById('custName').value.trim();
@@ -1208,29 +778,69 @@
             shoppingCart.forEach((item, index) => {
                 const totalLineItemPrice = item.product.price * item.qty;
                 cartGrandTotal += totalLineItemPrice;
-                const flag = item.product.origin === 'malaysia' ? '🇲🇾' : '🇹🇭';
-                formattedOrderItems += `${index + 1}. ${flag} *${item.product.name}* (x${item.qty}) -> ${formatRupiah(totalLineItemPrice)}\n`;
+
+                const flag = item.product.origin === 'malaysia'
+                    ? '🇲🇾'
+                    : '🇹🇭';
+
+                formattedOrderItems +=
+                    `${index + 1}. ${flag} ${item.product.name} (x${item.qty}) - ${formatRupiah(totalLineItemPrice)}\n`;
             });
 
             const message =
-`🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️
-🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia
+        `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️
+        🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia
 
-*Data Pembeli:*
-👤 *Nama:* ${name}
-📞 *No. WA:* ${phone}
-📍 *Alamat:* ${address}
-🚚 *Kurir:* ${courier}
+        *Data Pembeli:*
+        👤 *Nama:* ${name}
+        📞 *No. WA:* ${phone}
+        📍 *Alamat:* ${address}
+        🚚 *Kurir:* ${courier}
 
-*Detail Pesanan:*
-${formattedOrderItems}
-*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*
+        *Detail Pesanan:*
+        ${formattedOrderItems}
 
------------------------------------------
-Mohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
+        *Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*
 
-            const cleanPhoneTarget = WHATSAPP_CS_NUMBER.replace(/[^\d]/g, '');
-            const finalUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneTarget}&text=${encodeURIComponent(message)}`;
+        -----------------------------------------
+        Mohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
+
+            // =====================
+            // SIMPAN KE SPREADSHEET
+            // =====================
+            try {
+
+                await fetch(ORDER_SHEET_API, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        tanggal: new Date().toLocaleString("id-ID"),
+                        nama: name,
+                        whatsapp: phone,
+                        alamat: address,
+                        kurir: courier,
+                        produk: formattedOrderItems,
+                        total: cartGrandTotal
+                    })
+                });
+
+                console.log("Order berhasil disimpan");
+
+            } catch (error) {
+                console.error("Gagal menyimpan order:", error);
+            }
+
+            // =====================
+            // TETAP BUKA WHATSAPP
+            // =====================
+            const cleanPhoneTarget =
+                WHATSAPP_CS_NUMBER.replace(/[^\d]/g, '');
+
+            const finalUrl =
+                `https://api.whatsapp.com/send?phone=${cleanPhoneTarget}&text=${encodeURIComponent(message)}`;
+
             window.open(finalUrl, '_blank');
 
             shoppingCart = [];
@@ -1238,8 +848,12 @@ Mohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Teri
             closeShippingModal();
             toggleCartPanel(false);
             document.getElementById('shippingForm').reset();
-            showAmbientFeedback("Pesanan terkirim! Mengarahkan ke WhatsApp Admin...");
+
+            showAmbientFeedback(
+                "Pesanan tersimpan & WhatsApp dibuka..."
+            );
         }
     </script>
 </body>
 </html>
+
