@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FD.HUNT - Jastip Adventures Premium Catalog</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cinzel & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#030611',
+                            900: '#070f24',
+                            800: '#0f1c3f',
+                            700: '#172a5a',
+                        },
+                        gold: {
+                            DEFAULT: '#C5A059',
+                            50: '#F9F6F0',
+                            100: '#F2EBDC',
+                            200: '#E5D7B9',
+                            300: '#D8C296',
+                            400: '#CBAE73',
+                            500: '#C5A059',
+                            600: '#A47F3B',
+                            700: '#836025',
+                            800: '#624416',
+                            900: '#412B0B',
+                        }
+                    },
+                    fontFamily: {
+                        luxury: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030611;
+        }
+        
+        .luxury-text-glow {
+            text-shadow: 0 0 10px rgba(197, 160, 89, 0.3), 0 0 20px rgba(197, 160, 89, 0.1);
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.25);
+            border-color: rgba(197, 160, 89, 0.6);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030611;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #172a5a;
+            border-radius: 4px;
+            border: 2px solid #030611;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col selection:bg-gold/30 selection:text-white">
+
+    <!-- GLOBAL NOTIFICATION BANNER -->
+    <div class="bg-gradient-to-r from-gold-900 via-gold-700 to-gold-900 text-gold-100 text-center py-2 px-4 text-xs font-semibold tracking-wider uppercase">
+        <i class="fa-solid fa-crown mr-1.5 animate-pulse"></i> Nikmati Pengalaman Jasa Titip Eksklusif Bersama FD.HUNT
+    </div>
+
+    <!-- MAIN HEADER NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-navy-950/80 backdrop-blur-xl border-b border-gold-500/15 shadow-lg shadow-black/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Monogram logo inspired by 06A1EC9E-3C28-4C81-90C1-0912F2FD0F14_4_5005_c.jpeg -->
+            <div class="flex items-center gap-3">
+                <div class="relative w-12 h-12 bg-gradient-to-br from-navy-800 to-navy-950 border border-gold-500/30 rounded-xl flex items-center justify-center text-gold shadow-lg shadow-gold-500/5">
+                    <!-- Compass star outline -->
+                    <i class="fa-solid fa-compass absolute text-gold-500/10 text-3xl"></i>
+                    <span class="font-luxury font-extrabold text-xl tracking-tighter text-gold luxury-text-glow z-10">FD</span>
+                </div>
+                <div>
+                    <h1 class="font-luxury font-bold text-sm sm:text-base tracking-widest text-gold leading-none">FD.HUNT</h1>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-widest uppercase">Jastip Adventures</span>
+                </div>
+            </div>
+
+            <!-- Action Tools -->
+            <div class="flex items-center gap-4">
+                <!-- Search box Desktop -->
+                <div class="relative hidden md:block w-80">
+                    <input type="text" id="searchDesktop" placeholder="Cari item fesyen atau makanan..." 
+                        class="w-full pl-11 pr-4 py-2.5 bg-navy-900/90 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
+                </div>
+
+                <!-- Sync Trigger Button -->
+                <button onclick="syncGoogleSheetData()" class="flex items-center gap-2 bg-navy-900 hover:bg-navy-800 border border-gold-500/30 text-gold hover:text-gold-300 px-3.5 py-2.5 rounded-xl text-xs font-semibold tracking-wider uppercase transition-all shadow-md">
+                    <i id="syncIcon" class="fa-solid fa-rotate text-sm"></i>
+                    <span class="hidden sm:inline">Sync Sheet</span>
+                </button>
+
+                <!-- Cart Widget Button -->
+                <button onclick="toggleCartPanel(true)" class="relative p-3 bg-navy-900/90 border border-gold-500/20 hover:bg-navy-800 text-gold rounded-xl transition-all shadow-md">
+                    <i class="fa-solid fa-basket-shopping text-lg"></i>
+                    <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-600 to-red-500 text-white text-[10px] font-bold w-5.5 h-5.5 rounded-full flex items-center justify-center shadow-md border border-red-400 hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-16 px-4 bg-gradient-to-b from-navy-900 to-navy-950 overflow-hidden border-b border-gold-500/10">
+        <!-- Subtle golden particles ambient glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold-500/5 via-transparent to-transparent pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="max-w-2xl text-center lg:text-left">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-[11px] font-semibold uppercase tracking-widest text-gold-300 mb-6">
+                    <i class="fa-solid fa-star-of-david text-gold animate-spin-slow"></i> PREMIUM SOURCING EXPEDITION
+                </span>
+                <h2 class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-widest text-gold luxury-text-glow mb-6 leading-tight">
+                    ESTETIKA JASTIP KELAS DUNIA
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 font-light max-w-xl">
+                    Membawakan kurasi barang-barang eksklusif dari pusat perbelanjaan ternama langsung untuk Anda. Seluruh katalog terintegrasi *real-time* langsung dari Google Spreadsheet dengan sistem pemesanan langsung ke asisten belanja kami.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold tracking-wider">
+                    <div class="flex items-center gap-2 bg-navy-900/60 border border-gold-500/15 px-4 py-2.5 rounded-lg text-gold">
+                        <i class="fa-solid fa-shield-halved text-gold"></i> 100% ORIGINAL GUARANTEE
+                    </div>
+                    <div class="flex items-center gap-2 bg-navy-900/60 border border-gold-500/15 px-4 py-2.5 rounded-lg text-gold">
+                        <i class="fa-solid fa-paper-plane text-gold"></i> AUTO WHATSAPP CHECKOUT
+                    </div>
+                </div>
+            </div>
+
+            <!-- Luxury brand frame referencing the image metadata style -->
+            <div class="w-full max-w-sm bg-navy-950/60 p-6 rounded-2xl border border-gold-500/20 backdrop-blur-md shadow-2xl relative">
+                <div class="absolute -top-3 -right-3 w-8 h-8 bg-gold rounded-lg flex items-center justify-center text-navy-950 text-sm font-bold shadow-md">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <h4 class="font-luxury text-gold font-bold tracking-widest border-b border-gold-500/20 pb-3 mb-4 text-xs uppercase"><i class="fa-solid fa-clock mr-2 text-gold"></i> TRIP SCHEDULE</h4>
+                <ul class="text-xs space-y-4 text-slate-300 font-light">
+                    <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
+                        <span>Current Voyage:</span>
+                        <strong class="text-gold tracking-wider">BANGKOK HITS</strong>
+                    </li>
+                    <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
+                        <span>Closing Orders:</span>
+                        <strong class="text-red-400">Setiap Hari Minggu</strong>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>WhatsApp CS:</span>
+                        <strong class="text-gold tracking-wider">+62 819-7966-033</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN BODY SECTION -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <!-- Search bar for mobile -->
+        <div class="mb-8 block md:hidden">
+            <div class="relative">
+                <input type="text" id="searchMobile" placeholder="Cari item fesyen atau makanan..." 
+                    class="w-full pl-11 pr-4 py-3 bg-navy-900 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 transition-all shadow-lg">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
+            </div>
+        </div>
+
+        <!-- Filter category & statistics -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12 border-b border-slate-800 pb-6">
+            <div class="flex items-center gap-3 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
+                <button onclick="changeActiveCategory('all')" id="btn-all" class="cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all">
+                    Semua Koleksi
+                </button>
+                <button onclick="changeActiveCategory('fashion')" id="btn-fashion" class="cat-btn px-6 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all">
+                    Fashion
+                </button>
+                <button onclick="changeActiveCategory('food')" id="btn-food" class="cat-btn px-6 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all">
+                    Food
+                </button>
+            </div>
+            
+            <div class="text-xs text-slate-400 font-light tracking-wide flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Terdapat <span id="productCounter" class="font-bold text-gold">0</span> barang di katalog aktif
+            </div>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div id="productGridContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+            <!-- Products will be dynamically created here -->
+        </div>
+
+        <!-- Empty State UI -->
+        <div id="emptyCatalogState" class="hidden flex-col items-center justify-center py-24 text-center">
+            <div class="w-20 h-20 bg-navy-900 border border-gold-500/20 rounded-full flex items-center justify-center text-gold-500/40 mb-6 shadow-xl">
+                <i class="fa-solid fa-box-open text-3xl"></i>
+            </div>
+            <h3 class="font-luxury text-gold font-bold tracking-widest text-lg mb-2">Item Tidak Ditemukan</h3>
+            <p class="text-xs text-slate-400 font-light max-w-sm">Barang yang Anda cari belum tersedia. Coba kata kunci lain atau silakan hubungi CS kami untuk jastip kustom.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-slate-400 border-t border-gold-500/10 py-16 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-navy-900 border border-gold-500/30 rounded-xl flex items-center justify-center text-gold shadow-md">
+                            <span class="font-luxury font-extrabold text-lg text-gold">FD</span>
+                        </div>
+                        <h4 class="font-luxury font-bold text-white tracking-widest">FD.HUNT</h4>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-400 font-light">
+                        Menginspirasi ekspedisi petualangan jastip berkelas sejak dahulu. Kami mendatangkan barang berkualitas global langsung ke depan pintu hunian Anda secara terpercaya.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest mb-6">RECH OUT</h5>
+                    <ul class="text-xs space-y-4 font-light">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-gold text-base"></i>
+                            <a href="https://wa.me/628197966033" target="_blank" class="hover:text-gold transition-colors">+62 819-7966-033</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-regular fa-envelope text-gold"></i>
+                            <span>hello@fdhunt.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest mb-6">LANCAR & MUDAH</h5>
+                    <p class="text-xs mb-4 font-light leading-relaxed">Pilih item favorit Anda, isi formulir pengiriman, dan kirimkan format orderan langsung ke WhatsApp Admin kami.</p>
+                    <div class="flex flex-wrap gap-3 text-2xl text-slate-500">
+                        <i class="fa-brands fa-cc-visa hover:text-gold transition-colors"></i>
+                        <i class="fa-brands fa-cc-mastercard hover:text-gold transition-colors"></i>
+                        <i class="fa-solid fa-building-columns hover:text-gold transition-colors"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-900 mt-12 pt-8 text-center text-xs tracking-wider text-slate-500 font-light">
+                <p>&copy; 2026 FD.HUNT Jastip Adventures. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART PANEL DRAWER (RIGHT SIDE SLIDE-OVER) -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Background overlay -->
+            <div onclick="toggleCartPanel(false)" class="absolute inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity"></div>
+
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                <div class="pointer-events-auto w-screen max-w-md">
+                    <div class="flex h-full flex-col bg-navy-950 border-l border-gold-500/20 shadow-2xl">
+                        <!-- Header -->
+                        <div class="px-6 py-6 border-b border-gold-500/10 flex items-center justify-between">
+                            <h2 class="font-luxury text-gold font-bold tracking-widest text-sm uppercase">
+                                <i class="fa-solid fa-cart-shopping mr-2"></i> Keranjang Anda
+                            </h2>
+                            <button onclick="toggleCartPanel(false)" class="p-2 -m-2 text-slate-400 hover:text-gold transition-all">
+                                <i class="fa-solid fa-xmark text-xl"></i>
+                            </button>
+                        </div>
+
+                        <!-- Items Body -->
+                        <div class="flex-1 overflow-y-auto px-6 py-6">
+                            <div id="cartItemsList" class="space-y-6">
+                                <!-- Cart rows injected here -->
+                            </div>
+                            
+                            <!-- Empty Cart view -->
+                            <div id="cartEmptyMessage" class="flex flex-col items-center justify-center py-20 text-center">
+                                <div class="w-16 h-16 bg-navy-900 border border-gold-500/10 rounded-full flex items-center justify-center text-slate-600 mb-4 shadow-inner">
+                                    <i class="fa-solid fa-cart-plus text-xl text-gold-500/30"></i>
+                                </div>
+                                <p class="text-xs font-semibold text-slate-300 uppercase tracking-widest">Keranjang Kosong</p>
+                                <p class="text-[11px] text-slate-500 mt-2 max-w-xs font-light">Mari melangkah ke katalog jastip dan temukan item impian Anda!</p>
+                                <button onclick="toggleCartPanel(false)" class="mt-6 px-5 py-2.5 bg-gold hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-widest rounded-xl transition-all shadow-md">Belanja Sekarang</button>
+                            </div>
+                        </div>
+
+                        <!-- Footer summary -->
+                        <div id="cartBottomPanel" class="border-t border-gold-500/10 px-6 py-6 bg-navy-900/40">
+                            <div class="flex justify-between text-sm mb-6">
+                                <p class="text-slate-400 font-light tracking-wide">ESTIMASI TOTAL</p>
+                                <p id="cartTotalPrice" class="font-bold text-gold text-base tracking-widest">Rp 0</p>
+                            </div>
+                            <p class="text-[11px] text-slate-500 mb-6 font-light leading-relaxed">
+                                <i class="fa-solid fa-circle-info text-gold/60 mr-1"></i> Harga estimasi jastip final akan dikonfirmasi kembali oleh asisten belanja CS kami.
+                            </p>
+                            <button onclick="openShippingModal()" class="w-full flex items-center justify-center gap-3 rounded-xl bg-gold hover:bg-gold-600 px-6 py-4 text-xs font-bold text-navy-950 uppercase tracking-widest shadow-xl shadow-gold-500/5 transition-all">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> Proses Pembelian
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM NOTIFICATION MODALS & CONFIRM BOXES -->
+    <div id="shippingFormModal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
+        <div class="fixed inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity" onclick="closeShippingModal()"></div>
+        <div class="relative bg-navy-900 border border-gold-500/30 rounded-2xl max-w-md w-full shadow-2xl overflow-hidden z-10">
+            <div class="px-6 py-5 border-b border-gold-500/10 flex items-center justify-between bg-navy-950/40">
+                <h3 class="font-luxury text-gold font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-user-pen mr-2"></i> DATA PENGIRIMAN</h3>
+                <button onclick="closeShippingModal()" class="text-slate-400 hover:text-gold"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form id="shippingForm" onsubmit="executeWhatsAppCheckout(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-[10px] font-semibold text-gold uppercase tracking-wider mb-2" for="custName">Nama Penerima</label>
+                    <input type="text" id="custName" required placeholder="Contoh: Amanda Lovelia" 
+                        class="w-full px-4 py-3 bg-navy-950 border border-gold-500/20 rounded-xl text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold/50 transition-all">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-semibold text-gold uppercase tracking-wider mb-2" for="custPhone">No. WhatsApp</label>
+                    <input type="tel" id="custPhone" required placeholder="Contoh: 08123456789" 
+                        class="w-full px-4 py-3 bg-navy-950 border border-gold-500/20 rounded-xl text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold/50 transition-all">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-semibold text-gold uppercase tracking-wider mb-2" for="custAddress">Alamat Lengkap</label>
+                    <textarea id="custAddress" required rows="3" placeholder="Jl. Kemang Raya No. 12, Mampang, Jakarta Selatan" 
+                        class="w-full px-4 py-3 bg-navy-950 border border-gold-500/20 rounded-xl text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold/50 transition-all resize-none"></textarea>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-semibold text-gold uppercase tracking-wider mb-2" for="custCourier">Kurir Logistik</label>
+                    <select id="custCourier" class="w-full px-4 py-3 bg-navy-950 border border-gold-500/20 rounded-xl text-xs text-slate-100 focus:outline-none focus:border-gold/50 transition-all">
+                        <option value="J&T Express">J&T Express</option>
+                        <option value="JNE Express">JNE Express</option>
+                        <option value="Sicepat">Sicepat</option>
+                        <option value="GoSend/GrabExpress">Sameday/Instant (Jabodetabek)</option>
+                    </select>
+                </div>
+                <div class="pt-4 border-t border-gold-500/10 flex gap-4">
+                    <button type="button" onclick="closeShippingModal()" class="flex-1 py-3 border border-gold-500/20 hover:bg-navy-950 text-gold text-xs font-bold uppercase tracking-widest rounded-xl transition-all">Batal</button>
+                    <button type="submit" class="flex-1 py-3 bg-gold hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-gold-500/5 transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> KIRIM ORDER
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT SYSTEM ENGINE -->
+    <script>
+        const WHATSAPP_CS_NUMBER = "628197966033";
+        const GOOGLE_SHEET_ID = "1Suw18lMNgPzLRWA8GOEbaSznSY6hVBMXvACqhyH5IXo";
+        const SPREADSHEET_GID = "450214844";
+
+        // Elegantly curated local backup system in case of offline / CORS issues
+        const OFFLINE_PRODUCTS_FALLBACK = [
+            { id: 4, name: "Chiko Tomato", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 5, name: "Sandwich cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 6, name: "Salted egg mochi", price: 60000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 7, name: "Sandwich beef cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 8, name: "Chicken roll seaweed", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 9, name: "Burger beef", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 10, name: "Burger cheese", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 11, name: "Burger spicy", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 12, name: "Chicken finger Spicy", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 13, name: "Tama Spicy", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 14, name: "Tama Ori", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 15, name: "Kani", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 16, name: "Sosis sapi", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 17, name: "Mie ok Squidgame", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 18, name: "Tuna salmon", price: 55000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 19, name: "Chicken Skin", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 20, name: "Kunna", price: 45000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 21, name: "Euro Cake", price: 40000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 22, name: "Matcha 5 Sachet", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 23, name: "Meiji", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 24, name: "Celana Gajah", price: 100000, category: "fashion", desc: "Produk lifestyle & fashion terkurasi" },
+            { id: 25, name: "Lotus Dorbua Spicy", price: 30000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
+            { id: 26, name: "My Chewy Youghurt", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" }
+        ];
+
+        let activeCategory = 'all';
+        let searchQuery = '';
+        let activeDatabase = [];
+        let shoppingCart = [];
+
+        // Application Startup
+        window.addEventListener('load', async () => {
+            await initializeDatabase();
+            setupSearchEngine();
+            updateCartInterface();
+        });
+
+        async function initializeDatabase() {
+            // Set fallback as initial
+            activeDatabase = [...OFFLINE_PRODUCTS_FALLBACK];
+            renderProductsToGrid();
+
+            // Attempt dynamic live sheet sync
+            await syncGoogleSheetData(true);
+        }
+
+        async function syncGoogleSheetData(isSilent = false) {
+            const icon = document.getElementById('syncIcon');
+            if (icon) icon.classList.add('animate-spin');
+
+            const queryUrl = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=out:json&gid=${SPREADSHEET_GID}`;
+
+            try {
+                const response = await fetch(queryUrl);
+                if (!response.ok) throw new Error("HTTP error network request blocked.");
+                
+                const responseText = await response.text();
+                // Extract pure JSON
+                const cleanJsonStr = responseText.substring(responseText.indexOf('{'), responseText.lastIndexOf('}') + 1);
+                const parsedResult = JSON.parse(cleanJsonStr);
+                
+                const tableRows = parsedResult.table.rows;
+                if (!tableRows || tableRows.length === 0) throw new Error("No data found in spreadsheet.");
+
+                const importedProducts = [];
+                // Process Row 4 to Row 43 (Indices 3 to 42 in 0-indexed rows)
+                const startRowIdx = 3;
+                const endRowIdx = Math.min(tableRows.length, 43);
+
+                for (let i = startRowIdx; i < endRowIdx; i++) {
+                    const rowData = tableRows[i];
+                    if (!rowData || !rowData.c) continue;
+
+                    // Extracted schema matching custom instructions: C: Nama, D: Foto, F: Harga Mark Up
+                    const colName = rowData.c[2] ? rowData.c[2].v : '';
+                    const colPhoto = rowData.c[3] ? rowData.c[3].v : '';
+                    const colPrice = rowData.c[5] ? rowData.c[5].v : 0;
+
+                    if (!colName) continue; // Skip blank items
+
+                    // Clean & cast price
+                    let priceVal = 0;
+                    if (typeof colPrice === 'number') {
+                        priceVal = colPrice;
+                    } else if (colPrice) {
+                        priceVal = parseInt(String(colPrice).replace(/[^\d]/g, ''), 10) || 0;
+                    }
+
+                    // Format image link
+                    let imageUrl = '';
+                    if (colPhoto && String(colPhoto).startsWith('http')) {
+                        // Support google drive bypass natively
+                        if (String(colPhoto).includes('drive.google.com')) {
+                            const driveIdMatch = String(colPhoto).match(/\/file\/d\/([^\/]+)/) || String(colPhoto).match(/id=([^&]+)/);
+                            if (driveIdMatch && driveIdMatch[1]) {
+                                imageUrl = `https://lh3.googleusercontent.com/d/${driveIdMatch[1]}=s600`;
+                            }
+                        } else {
+                            imageUrl = colPhoto;
+                        }
+                    }
+
+                    // Strict auto-classification to 2 categories: Fashion and Food
+                    let catVal = 'fashion';
+                    const lowerName = colName.toLowerCase();
+                    const foodTriggers = ['chiko', 'sandwich', 'mochi', 'roll', 'burger', 'spicy', 'tama', 'kani', 'sosis', 'mie', 'squidgame', 'tuna', 'salmon', 'skin', 'kunna', 'cake', 'matcha', 'meiji', 'lotus', 'dorbua', 'chewy', 'youghurt', 'snack', 'makanan', 'camilan', 'biscuit', 'coklat', 'chocolate', 'drink', 'beverage', 'tea', 'coffee', 'ramen', 'instant', 'tomato', 'cheese', 'beef', 'chicken', 'egg', 'seaweed', 'squid', 'food', 'makan'];
+                    
+                    if (foodTriggers.some(keyword => lowerName.includes(keyword))) {
+                        catVal = 'food';
+                    }
+
+                    importedProducts.push({
+                        id: i + 1,
+                        name: colName,
+                        price: priceVal,
+                        category: catVal,
+                        image: imageUrl,
+                        desc: catVal === 'food' ? 'Camilan & kuliner khas berkualitas tinggi' : 'Produk lifestyle & fashion terkurasi'
+                    });
+                }
+
+                if (importedProducts.length > 0) {
+                    activeDatabase = importedProducts;
+                    renderProductsToGrid();
+                    if (!isSilent) showAmbientFeedback("Sinkronisasi database berhasil diperbarui!");
+                }
+            } catch (err) {
+                console.warn("Spreadsheet connection blocked or offline, loaded secure backup catalog.", err);
+                if (!isSilent) showAmbientFeedback("Menggunakan data katalog ter-caching.");
+            } finally {
+                if (icon) icon.classList.remove('animate-spin');
+            }
+        }
+
+        function renderProductsToGrid() {
+            const grid = document.getElementById('productGridContainer');
+            const emptyState = document.getElementById('emptyCatalogState');
+            grid.innerHTML = '';
+
+            const filteredData = activeDatabase.filter(p => {
+                const isCatMatch = activeCategory === 'all' || p.category === activeCategory;
+                const isSearchMatch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      p.desc.toLowerCase().includes(searchQuery.toLowerCase());
+                return isCatMatch && isSearchMatch;
+            });
+
+            document.getElementById('productCounter').textContent = filteredData.length;
+
+            if (filteredData.length === 0) {
+                emptyState.classList.remove('hidden');
+                grid.classList.add('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.classList.remove('hidden');
+
+            filteredData.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "group relative bg-navy-950/60 border border-gold-500/10 hover:border-gold-500/30 rounded-2xl overflow-hidden backdrop-blur-md gold-border-glow flex flex-col justify-between";
+                
+                // Visual container (Empty/placeholder set by default to match aesthetics requested)
+                let imageElement = '';
+                if (p.image && p.image !== '') {
+                    // Try loaded image
+                    imageElement = `
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImageLoadError(this, '${p.name}')">
+                    `;
+                } else {
+                    // Premium Gold & Navy monogram vector placeholder
+                    imageElement = createPremiumPlaceholderSvg(p.name);
+                }
+
+                card.innerHTML = `
+                    <div>
+                        <div class="aspect-square w-full bg-navy-900 border-b border-gold-500/10 flex items-center justify-center relative overflow-hidden select-none">
+                            ${imageElement}
+                            <span class="absolute top-3 left-3 bg-gold text-navy-950 text-[9px] font-bold tracking-widest px-2.5 py-1 rounded-md uppercase">Original</span>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-[9px] text-gold font-semibold tracking-widest uppercase mb-1.5 block">${p.category}</span>
+                            <h3 class="font-luxury font-bold text-sm text-slate-100 line-clamp-1 group-hover:text-gold transition-colors" title="${p.name}">${p.name}</h3>
+                            <p class="text-[11px] text-slate-400 font-light line-clamp-2 mt-1.5 leading-relaxed">${p.desc}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <div class="flex items-center justify-between gap-4 mt-4 pt-4 border-t border-slate-800/60">
+                            <div class="flex flex-col">
+                                <span class="text-[9px] text-slate-500 tracking-wider">HARGA MARK-UP</span>
+                                <span class="text-xs sm:text-sm font-extrabold text-gold tracking-wider">${formatRupiah(p.price)}</span>
+                            </div>
+                            <button onclick="addSelectedProductToCart(${p.id})" class="p-3 bg-gold hover:bg-gold-600 active:scale-95 text-navy-950 rounded-xl text-xs font-bold transition-all shadow-md">
+                                <i class="fa-solid fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Beautiful dynamic vector generator for placeholders
+        function createPremiumPlaceholderSvg(name) {
+            const initials = name.substring(0, 2).toUpperCase();
+            return `
+                <div class="w-full h-full bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 flex flex-col items-center justify-center p-6 text-center select-none relative">
+                    <svg class="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                        <defs>
+                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" />
+                    </svg>
+                    <div class="w-14 h-14 rounded-full border border-gold-500/30 flex items-center justify-center text-gold luxury-text-glow font-luxury font-bold text-lg mb-2 z-10 bg-navy-950/80">
+                        ${initials}
+                    </div>
+                    <span class="text-[9px] text-gold-500/40 tracking-widest font-luxury uppercase z-10">FD.HUNT BOUTIQUE</span>
+                </div>
+            `;
+        }
+
+        // Image load error catcher
+        function handleImageLoadError(imgObj, name) {
+            const container = imgObj.parentElement;
+            if (container) {
+                container.innerHTML = createPremiumPlaceholderSvg(name);
+            }
+        }
+
+        function setupSearchEngine() {
+            const deskInput = document.getElementById('searchDesktop');
+            const mobInput = document.getElementById('searchMobile');
+
+            const handleTyping = (e) => {
+                searchQuery = e.target.value;
+                if (e.target === deskInput) {
+                    mobInput.value = searchQuery;
+                } else {
+                    deskInput.value = searchQuery;
+                }
+                renderProductsToGrid();
+            };
+
+            deskInput.addEventListener('input', handleTyping);
+            mobInput.addEventListener('input', handleTyping);
+        }
+
+        function changeActiveCategory(newCategory) {
+            activeCategory = newCategory;
+
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn px-6 py-2.5 bg-navy-900 text-gold-300 hover:text-gold border border-gold-500/20 rounded-xl text-xs tracking-widest uppercase transition-all";
+            });
+
+            const currentActiveBtn = document.getElementById(`btn-${newCategory}`);
+            if (currentActiveBtn) {
+                currentActiveBtn.className = "cat-btn px-6 py-2.5 bg-gold text-navy-950 font-semibold rounded-xl text-xs tracking-widest uppercase shadow-md transition-all";
+            }
+
+            renderProductsToGrid();
+        }
+
+        // Toggle Drawer Slide-over Panel
+        function toggleCartPanel(isOpen) {
+            const drawer = document.getElementById('cartDrawer');
+            if (isOpen) {
+                drawer.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                drawer.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        function addSelectedProductToCart(pId) {
+            const product = activeDatabase.find(p => p.id === pId);
+            if (!product) return;
+
+            const duplicateIdx = shoppingCart.findIndex(item => item.product.id === pId);
+            if (duplicateIdx > -1) {
+                shoppingCart[duplicateIdx].qty += 1;
+            } else {
+                shoppingCart.push({ product, qty: 1 });
+            }
+
+            updateCartInterface();
+            showAmbientFeedback(`${product.name} telah masuk ke keranjang.`);
+        }
+
+        function adjustQty(pId, delta) {
+            const cartItemIdx = shoppingCart.findIndex(item => item.product.id === pId);
+            if (cartItemIdx === -1) return;
+
+            shoppingCart[cartItemIdx].qty += delta;
+            if (shoppingCart[cartItemIdx].qty <= 0) {
+                shoppingCart.splice(cartItemIdx, 1);
+            }
+            updateCartInterface();
+        }
+
+        function updateCartInterface() {
+            const container = document.getElementById('cartItemsList');
+            const badge = document.getElementById('cartCountBadge');
+            const emptyView = document.getElementById('cartEmptyMessage');
+            const footSummary = document.getElementById('cartBottomPanel');
+            const priceLabel = document.getElementById('cartTotalPrice');
+
+            container.innerHTML = '';
+            let cumulativeQty = 0;
+            let cumulativePrice = 0;
+
+            if (shoppingCart.length === 0) {
+                emptyView.classList.remove('hidden');
+                footSummary.classList.add('hidden');
+                badge.classList.add('hidden');
+            } else {
+                emptyView.classList.add('hidden');
+                footSummary.classList.remove('hidden');
+                badge.classList.remove('hidden');
+
+                shoppingCart.forEach(item => {
+                    cumulativeQty += item.qty;
+                    cumulativePrice += item.product.price * item.qty;
+
+                    const row = document.createElement('div');
+                    row.className = "flex items-center justify-between gap-4 py-4 border-b border-slate-800/60";
+                    row.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 bg-navy-900 border border-gold-500/10 rounded-xl flex items-center justify-center text-xs font-luxury font-bold text-gold">
+                                ${item.product.name.substring(0, 2).toUpperCase()}
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-100 line-clamp-1 max-w-[150px]">${item.product.name}</h4>
+                                <span class="text-[10px] text-gold tracking-wide mt-0.5 block">${formatRupiah(item.product.price)}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <button onclick="adjustQty(${item.product.id}, -1)" class="w-6 h-6 rounded-lg bg-navy-900 border border-gold-500/20 flex items-center justify-center text-slate-400 hover:text-gold transition-all">-</button>
+                            <span class="text-xs font-bold text-slate-200 w-5 text-center">${item.qty}</span>
+                            <button onclick="adjustQty(${item.product.id}, 1)" class="w-6 h-6 rounded-lg bg-navy-900 border border-gold-500/20 flex items-center justify-center text-slate-400 hover:text-gold transition-all">+</button>
+                        </div>
+                    `;
+                    container.appendChild(row);
+                });
+            }
+
+            badge.textContent = cumulativeQty;
+            priceLabel.textContent = formatRupiah(cumulativePrice);
+        }
+
+        function formatRupiah(rawNum) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(rawNum);
+        }
+
+        // Custom notification toaster without using alert()
+        function showAmbientFeedback(msg) {
+            const existingToast = document.getElementById('customToasterNotification');
+            if (existingToast) existingToast.remove();
+
+            const toast = document.createElement('div');
+            toast.id = "customToasterNotification";
+            toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 bg-navy-950 border border-gold text-slate-200 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 text-xs tracking-wide z-50 transition-all duration-300 transform translate-y-12 opacity-0 font-medium";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-gold text-base"></i> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-12', 'opacity-0');
+            }, 50);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-12', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function openShippingModal() {
+            if (shoppingCart.length === 0) return;
+            document.getElementById('shippingFormModal').classList.remove('hidden');
+        }
+
+        function closeShippingModal() {
+            document.getElementById('shippingFormModal').classList.add('hidden');
+        }
+
+        function executeWhatsAppCheckout(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const courier = document.getElementById('custCourier').value;
+
+            if (shoppingCart.length === 0) return;
+
+            let formattedOrderItems = "";
+            let cartGrandTotal = 0;
+
+            shoppingCart.forEach((item, index) => {
+                const totalLineItemPrice = item.product.price * item.qty;
+                cartGrandTotal += totalLineItemPrice;
+                formattedOrderItems += `${index + 1}. *${item.product.name}* (x${item.qty}) -> ${formatRupiah(totalLineItemPrice)}\n`;
+            });
+
+            // Format message template elegantly to match the premium FD.HUNT styling requested
+            const message = 
+`🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️
+
+*Data Pembeli:*
+👤 *Nama:* ${name}
+📞 *No. WA:* ${phone}
+📍 *Alamat:* ${address}
+🚚 *Kurir:* ${courier}
+
+*Detail Pesanan:*
+${formattedOrderItems}
+*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*
+
+-----------------------------------------
+Mohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
+
+            // Open clean API Whatsapp URL
+            const cleanPhoneTarget = WHATSAPP_CS_NUMBER.replace(/[^\d]/g, '');
+            const finalUrl = `https://api.whatsapp.com/send?phone=${cleanPhoneTarget}&text=${encodeURIComponent(message)}`;
+            window.open(finalUrl, '_blank');
+
+            // Reset and refresh app
+            shoppingCart = [];
+            updateCartInterface();
+            closeShippingModal();
+            toggleCartPanel(false);
+            document.getElementById('shippingForm').reset();
+            showAmbientFeedback("Pesanan terkirim! Mengarahkan ke WhatsApp Admin...");
+        }
+    </script>
+</body>
+</html>
