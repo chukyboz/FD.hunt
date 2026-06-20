@@ -390,9 +390,42 @@
         // Form Order endpoint backend App Script tetap dibiarkan aktif agar fungsi kirim data orderan berjalan normal
         const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbxzseqhxGpVpp1AGUf7oa7WXqorUxgtHHZBr8i97qWa4-R46TeZHYj_U0lgaClxUwcq/exec";
 
-        // Array Produk Lokal Standalone (Dikosongkan sesuai instruksi Anda)
-        // Jika dikemudian hari Anda ingin menambahkan produk bawaan statis, masukkan objek di sini.
-        const OFFLINE_PRODUCTS_FALLBACK = [];
+        // Array Produk Lokal Standalone dari Spreadsheet aktif
+        // Sesuai instruksi: Melewatkan kolom E, G, H, I. Menampilkan data utama & Varian Kolom J (Baris 44).
+        const OFFLINE_PRODUCTS_FALLBACK = [
+            {
+                id: 1,
+                name: "Gentle Woman Micro Box Tote",
+                price: 599300,
+                category: "fashion",
+                desc: "Tote bag premium berkelas khas Bangkok. Varian ukuran tersedia: micro, mini, medium, large.",
+                image: ""
+            },
+            {
+                id: 2,
+                name: "Denim Micro Tote Bag",
+                price: 685500,
+                category: "fashion",
+                desc: "Koleksi denim mewah berukuran micro yang sedang viral dan sangat diminati di Siam Square.",
+                image: ""
+            },
+            {
+                id: 3,
+                name: "Premium Bangkok Milk Bun",
+                price: 120000,
+                category: "food",
+                desc: "Roti susu khas Bangkok yang super lembut, creamy, bertabur bubuk susu premium. Disajikan segar.",
+                image: ""
+            },
+            {
+                id: 4,
+                name: "Canvas Daily Totebag",
+                price: 545000,
+                category: "fashion",
+                desc: "Tas jinjing kanvas kasual All Size dengan ketahanan tinggi untuk menunjang aktivitas harian fashion Anda.",
+                image: ""
+            }
+        ];
 
         let activeCategory = 'all';
         let searchQuery = '';
