@@ -103,11 +103,8 @@
             <div class="flex items-center gap-4">
                 <div class="relative hidden md:block w-80">
                     <input type="text" id="searchDesktop" placeholder="Cari item fesyen atau makanan..." 
-                        class="w-full pl-11 pr-12 py-2.5 bg-navy-900/90 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all">
+                        class="w-full pl-11 pr-4 py-2.5 bg-navy-900/90 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
-                    <button onclick="clearSearch()" id="clearSearchDesktop" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-gold hidden">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
                 </div>
 
                 <button onclick="openCustomItemModal()" class="flex items-center gap-2 bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-navy-950 px-3.5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md">
@@ -160,11 +157,11 @@
                 <ul class="text-xs space-y-4 text-slate-300 font-light">
                     <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
                         <span>Current Voyage:</span>
-                        <strong class="text-gold tracking-wider">BANGKOK HITS</strong>
+                        <strong class="text-gold tracking-wider">Thailand & Malaysia</strong>
                     </li>
                     <li class="flex justify-between items-center border-b border-slate-800/50 pb-2">
                         <span>Closing Orders:</span>
-                        <strong class="text-red-400">Setiap Hari Minggu</strong>
+                        <strong class="text-red-400">01 July 2026</strong>
                     </li>
                     <li class="flex justify-between items-center">
                         <span>WhatsApp CS:</span>
@@ -179,11 +176,8 @@
         <div class="mb-8 block md:hidden">
             <div class="relative">
                 <input type="text" id="searchMobile" placeholder="Cari item fesyen atau makanan..." 
-                    class="w-full pl-11 pr-12 py-3 bg-navy-900 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 transition-all shadow-lg">
+                    class="w-full pl-11 pr-4 py-3 bg-navy-900 border border-gold-500/20 rounded-xl text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-gold/50 transition-all shadow-lg">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-500/40 text-sm"></i>
-                <button onclick="clearSearch()" id="clearSearchMobile" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-gold hidden">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
             </div>
         </div>
 
@@ -462,7 +456,7 @@
                     if (!rowData || !rowData.c) continue;
 
                     const colName = rowData.c[1] ? rowData.c[1].v : '';
-                    const colCategoryRaw = rowData.c[2] ? rowData.c[2].v : ''; 
+                    const colCategoryRaw = rowData.c[2] ? rowData.c[2].v : ''; // Mengambil data dari Kolom C (indeks 2)
                     const colPhoto = rowData.c[3] ? rowData.c[3].v : '';
                     const colPrice = rowData.c[5] ? rowData.c[5].v : 0;
                     const colVariantsRaw = rowData.c[9] ? rowData.c[9].v : ''; 
@@ -485,7 +479,7 @@
                                 if (trimmedPhoto.includes('drive.google.com')) {
                                     const driveIdMatch = trimmedPhoto.match(/\/file\/d\/([^\/]+)/) || trimmedPhoto.match(/id=([^&]+)/);
                                     if (driveIdMatch && driveIdMatch[1]) {
-                                        imagesArray.push(`https://lh3.googleusercontent.com/d/$${driveIdMatch[1]}=s600`);
+                                        imagesArray.push(`https://lh3.googleusercontent.com/d/${driveIdMatch[1]}=s600`);
                                     }
                                 } else {
                                     imagesArray.push(trimmedPhoto);
@@ -494,7 +488,8 @@
                         });
                     }
 
-                    let catVal = 'lainnya'; 
+                    // PEMFILTRAN BERDASARKAN COLUMN C (Indeks ke-2)
+                    let catVal = 'lainnya'; // Default kategori jika tidak cocok
                     if (colCategoryRaw) {
                         const lowerCategory = String(colCategoryRaw).toLowerCase().trim();
                         if (lowerCategory === 'fashion' || lowerCategory === 'baju' || lowerCategory === 'pakaian') {
@@ -555,7 +550,6 @@
             const emptyState = document.getElementById('emptyCatalogState');
             grid.innerHTML = '';
 
-            // LOGIKA FILTER KATEGORI + PENCARIAN SEARCH BAR
             const filteredData = activeDatabase.filter(p => {
                 const isCatMatch = activeCategory === 'all' || p.category === activeCategory;
                 const isSearchMatch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -801,48 +795,22 @@
             }
         }
 
-        // FUNGSI UTAMA SEARCH ENGINE & SINKRONISASI REALTIME
         function setupSearchEngine() {
             const deskInput = document.getElementById('searchDesktop');
             const mobInput = document.getElementById('searchMobile');
-            const btnClearDesk = document.getElementById('clearSearchDesktop');
-            const btnClearMob = document.getElementById('clearSearchMobile');
 
             const handleTyping = (e) => {
                 searchQuery = e.target.value;
-                
-                // Menyamakan isi teks inputan antara desktop dan mobile
                 if (e.target === deskInput) {
                     mobInput.value = searchQuery;
                 } else {
                     deskInput.value = searchQuery;
                 }
-
-                // Tampilkan atau sembunyikan tombol clear (X) jika teks ada/kosong
-                if (searchQuery.trim() !== "") {
-                    btnClearDesk.classList.remove('hidden');
-                    btnClearMob.classList.remove('hidden');
-                } else {
-                    btnClearDesk.classList.add('hidden');
-                    btnClearMob.classList.add('hidden');
-                }
-
-                // Jalankan refresh grid katalog dengan filter pencarian terbaru
                 renderProductsToGrid();
             };
 
             deskInput.addEventListener('input', handleTyping);
             mobInput.addEventListener('input', handleTyping);
-        }
-
-        // Fungsi pembantu jika user menekan tombol silang (X) untuk menghapus kata kunci
-        function clearSearch() {
-            searchQuery = '';
-            document.getElementById('searchDesktop').value = '';
-            document.getElementById('searchMobile').value = '';
-            document.getElementById('clearSearchDesktop').classList.add('hidden');
-            document.getElementById('clearSearchMobile').classList.add('hidden');
-            renderProductsToGrid();
         }
 
         function changeActiveCategory(newCategory) {
