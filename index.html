@@ -143,7 +143,7 @@
             <div class="border-2 border-gold rounded-[24px] px-6 py-8 sm:py-10 mb-6 bg-navy-950/40 backdrop-blur-sm shadow-xl">
                 
                 <div class="inline-block bg-gold text-navy-950 text-[10px] sm:text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest mb-3">
-                    &#10022; OPEN PO &#10022;
+                    ✦ OPEN PO ✦
                 </div>
                 <div class="text-xl sm:text-2xl font-extrabold tracking-wide text-white">
                     22 JUNI – 02 JULI 2026
@@ -152,14 +152,14 @@
                 <hr class="border-0 border-t border-slate-700/50 my-6 sm:my-8 w-[85%] mx-auto">
 
                 <div class="inline-block border border-gold text-gold text-[10px] sm:text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest mb-3">
-                    &#10022; PENGIRIMAN &#10022;
+                    ✦ PENGIRIMAN ✦
                 </div>
                 <div class="text-xl sm:text-2xl font-extrabold tracking-wide text-white">
                     12 – 16 JULI 2026
                 </div>
             </div>
 
-            <div class="bg-navy-900 border border-gold-500/20 rounded-[16px] p-5 sm:p-6 text-center shadow-lg">
+            <div class="bg-navy-900 border border-gold-500/20 rounded-[16px] p-5 sm:p-6 text-center shadow-lg mb-6">
                 <div class="text-gold font-bold text-xs sm:text-sm tracking-widest uppercase mb-3 flex items-center justify-center gap-2">
                     🛍️ TARGET BORONGAN UTAMA:
                 </div>
@@ -170,6 +170,13 @@
                 <div class="text-[10px] sm:text-xs text-slate-400 italic font-light">
                     *Semua barang bisa request, tapi wajib confirm ke admin!
                 </div>
+            </div>
+
+            <div class="w-full flex justify-center">
+                <a href="https://chat.whatsapp.com/HXRKBB4DpRtEXp770zu9Ih?s=sw&p=i&ilr=4" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold tracking-wide text-[11px] sm:text-xs uppercase px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-950/40 border border-emerald-400/20 active:scale-95 transition-all duration-300">
+                    <i class="fa-brands fa-whatsapp text-sm sm:text-base animate-bounce"></i>
+                    Join WhatsApp Community
+                </a>
             </div>
         </div>
     </section>
@@ -407,12 +414,36 @@
         </div>
     </div>
 
+    <footer class="mt-auto bg-navy-950 border-t border-gold-500/15 py-8 px-4 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-4">
+            
+            <h3 class="font-luxury text-gold font-bold tracking-widest text-xs sm:text-sm uppercase mb-1">
+                ✦ HUBUNGI KAMI ✦
+            </h3>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="https://www.instagram.com/fd.hunt_jastip?igsh=MTI3Y2t3eG4zcmRiaA%3D%3D&utm_source=qr" target="_blank" class="group flex items-center gap-2 text-slate-400 hover:text-gold transition-all duration-300">
+                    <i class="fa-brands fa-instagram text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
+                    <span class="font-medium tracking-wider text-xs sm:text-sm">@fd.hunt_jastip</span>
+                </a>
+
+                <a href="https://api.whatsapp.com/send?phone=628197966033&text=Halo%20Admin%20FD.HUNT%2C%20saya%20ingin%20bertanya%20mengenai%20layanan%20jastip..." target="_blank" class="group flex items-center gap-2 text-slate-400 hover:text-emerald-400 transition-all duration-300">
+                    <i class="fa-brands fa-whatsapp text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
+                    <span class="font-medium tracking-wider text-xs sm:text-sm">+62 819-7966-033</span>
+                </a>
+            </div>
+
+            <div class="text-[9px] sm:text-[10px] text-slate-600 font-light tracking-widest uppercase mt-4">
+                © 2026 FD.HUNT. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
     <script>
         const WHATSAPP_CS_NUMBER = "628197966033";
         const GOOGLE_SHEET_ID = "13FR71viN0LPKDXmSkcxCm7rJJYls21ZJZbz85BjI_3Y";
         const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbxzseqhxGpVpp1AGUf7oa7WXqorUxgtHHZBr8i97qWa4-R46TeZHYj_U0lgaClxUwcq/exec";
 
-        // Fallback Cache Database Luring
         const OFFLINE_PRODUCTS_FALLBACK = [
             { id: 4, name: "Chiko Tomato", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
             { id: 5, name: "Sandwich cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
@@ -509,7 +540,7 @@
                                 if (trimmedPhoto.includes('drive.google.com')) {
                                     const driveIdMatch = trimmedPhoto.match(/\/file\/d\/([^\/]+)/) || trimmedPhoto.match(/id=([^&]+)/);
                                     if (driveIdMatch && driveIdMatch[1]) {
-                                        imagesArray.push(`https://lh3.googleusercontent.com/u/0/d/${driveIdMatch[1]}=s600`);
+                                        imagesArray.push(`https://lh3.googleusercontent.com/d/${driveIdMatch[1]}=s600`);
                                     }
                                 } else {
                                     imagesArray.push(trimmedPhoto);
@@ -808,7 +839,7 @@
         function createPremiumPlaceholderSvg(name) {
             const initials = name.substring(0, 2).toUpperCase();
             return `
-                <div class="w-full h-full bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 flex flex-col items-center justify-center p-4 text-center select-none relative">
+                <div class="w-full h-full min-h-[160px] bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 flex flex-col items-center justify-center p-4 text-center select-none relative">
                     <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-full border border-gold-500/30 flex items-center justify-center text-gold luxury-text-glow font-luxury font-bold text-sm sm:text-lg mb-1.5 z-10 bg-navy-950/80">
                         ${initials}
                     </div>
@@ -1015,7 +1046,6 @@
 
             const message = `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️\n🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia\n\n*Data Pembeli:*\n👤 *Nama:* ${name}\n📞 *No. WA:* ${phone}\n📍 *Alamat:* ${address}\n🚚 *Kurir:* ${courier}\n\n*Detail Pesanan:*\n${formattedOrderItems}\n*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*\n\n-----------------------------------------\nMohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
 
-            // Asynchronous API call to Google Web App Sheet (Tidak memblokir proses WhatsApp)
             fetch(ORDER_SHEET_API, {
                 method: "POST",
                 mode: "no-cors",
@@ -1031,11 +1061,9 @@
                 })
             }).catch(error => console.error("Gagal sinkron log order webapp:", error));
 
-            // Redirect ke API WhatsApp target
             const finalUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_CS_NUMBER}&text=${encodeURIComponent(message)}`;
             window.open(finalUrl, '_blank');
 
-            // Reset komponen transaksi setelah klik kirim order
             shoppingCart = [];
             updateCartInterface();
             closeShippingModal();
