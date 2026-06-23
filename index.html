@@ -159,7 +159,7 @@
                 </div>
             </div>
 
-            <div class="bg-navy-900 border border-gold-500/20 rounded-[16px] p-5 sm:p-6 text-center shadow-lg mb-6">
+            <div class="bg-navy-900 border border-gold-500/20 rounded-[16px] p-5 sm:p-6 text-center shadow-lg">
                 <div class="text-gold font-bold text-xs sm:text-sm tracking-widest uppercase mb-3 flex items-center justify-center gap-2">
                     🛍️ TARGET BORONGAN UTAMA:
                 </div>
@@ -170,13 +170,6 @@
                 <div class="text-[10px] sm:text-xs text-slate-400 italic font-light">
                     *Semua barang bisa request, tapi wajib confirm ke admin!
                 </div>
-            </div>
-
-            <div class="w-full flex justify-center">
-                <a href="https://chat.whatsapp.com/HXRKBB4DpRtEXp770zu9Ih?s=sw&p=i&ilr=4" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold tracking-wide text-[11px] sm:text-xs uppercase px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-950/40 border border-emerald-400/20 active:scale-95 transition-all duration-300">
-                    <i class="fa-brands fa-whatsapp text-sm sm:text-base animate-bounce"></i>
-                    Join WhatsApp Community
-                </a>
             </div>
         </div>
     </section>
@@ -404,9 +397,22 @@
                         <option value="GoSend/GrabExpress">Sameday/Instant (Jabodetabek)</option>
                     </select>
                 </div>
+                <div class="bg-navy-950 border border-gold-500/20 rounded-xl p-3.5 text-center shadow-inner">
+                    <span class="text-[9px] font-semibold text-gold uppercase tracking-wider block mb-1">
+                        <i class="fa-solid fa-credit-card mr-1"></i> Rekening Pembayaran
+                    </span>
+                    <div class="text-xs font-bold text-white tracking-wide">Bank Mandiri</div>
+                    <div class="text-sm font-extrabold text-gold tracking-widest my-0.5 select-all">1330030343933</div>
+                    <div class="text-[10px] text-slate-400 font-medium uppercase tracking-wider">a.n. MUHAMMAD RIZKI NURFI</div>
+                </div>
+                <div>
+                    <label class="block text-[9px] sm:text-[10px] font-semibold text-gold uppercase tracking-wider mb-1.5" for="custProof">Upload Bukti Transfer </label>
+                    <input type="file" id="custProof" accept="image/*"
+                        class="w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-gold file:text-navy-950 hover:file:bg-gold-600 transition-all cursor-pointer bg-navy-950 border border-gold-500/20 rounded-xl p-1">
+                </div>
                 <div class="pt-3.5 border-t border-gold-500/10 flex gap-3">
                     <button type="button" onclick="closeShippingModal()" class="flex-1 py-2.5 border border-gold-500/20 hover:bg-navy-950 text-gold text-xs font-bold uppercase tracking-widest rounded-xl transition-all">Batal</button>
-                    <button type="submit" class="flex-1 py-2.5 bg-gold hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5">
+                    <button type="submit" id="btnSubmitOrder" class="flex-1 py-2.5 bg-gold hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-paper-plane"></i> KIRIM ORDER
                     </button>
                 </div>
@@ -414,36 +420,13 @@
         </div>
     </div>
 
-    <footer class="mt-auto bg-navy-950 border-t border-gold-500/15 py-8 px-4 text-center">
-        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-4">
-            
-            <h3 class="font-luxury text-gold font-bold tracking-widest text-xs sm:text-sm uppercase mb-1">
-                ✦ HUBUNGI KAMI ✦
-            </h3>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                <a href="https://www.instagram.com/fd.hunt_jastip?igsh=MTI3Y2t3eG4zcmRiaA%3D%3D&utm_source=qr" target="_blank" class="group flex items-center gap-2 text-slate-400 hover:text-gold transition-all duration-300">
-                    <i class="fa-brands fa-instagram text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
-                    <span class="font-medium tracking-wider text-xs sm:text-sm">@fd.hunt_jastip</span>
-                </a>
-
-                <a href="https://api.whatsapp.com/send?phone=628197966033&text=Halo%20Admin%20FD.HUNT%2C%20saya%20ingin%20bertanya%20mengenai%20layanan%20jastip..." target="_blank" class="group flex items-center gap-2 text-slate-400 hover:text-emerald-400 transition-all duration-300">
-                    <i class="fa-brands fa-whatsapp text-base sm:text-lg group-hover:scale-110 transition-transform"></i>
-                    <span class="font-medium tracking-wider text-xs sm:text-sm">+62 819-7966-033</span>
-                </a>
-            </div>
-
-            <div class="text-[9px] sm:text-[10px] text-slate-600 font-light tracking-widest uppercase mt-4">
-                © 2026 FD.HUNT. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
-
     <script>
         const WHATSAPP_CS_NUMBER = "628197966033";
         const GOOGLE_SHEET_ID = "13FR71viN0LPKDXmSkcxCm7rJJYls21ZJZbz85BjI_3Y";
-        const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbxzseqhxGpVpp1AGUf7oa7WXqorUxgtHHZBr8i97qWa4-R46TeZHYj_U0lgaClxUwcq/exec";
+        // MENGGUNAKAN URL WEB APP BARU YANG TERINTEGRASI DENGAN GOOGLE DRIVE
+        const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbyaflfmrH-qjw0cGIN43eEGps01AASqY22gvQ-q5ZBZltdIREhXG2rVJzZeO6ojql-G/exec";
 
+        // Fallback Cache Database Luring
         const OFFLINE_PRODUCTS_FALLBACK = [
             { id: 4, name: "Chiko Tomato", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
             { id: 5, name: "Sandwich cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
@@ -540,7 +523,7 @@
                                 if (trimmedPhoto.includes('drive.google.com')) {
                                     const driveIdMatch = trimmedPhoto.match(/\/file\/d\/([^\/]+)/) || trimmedPhoto.match(/id=([^&]+)/);
                                     if (driveIdMatch && driveIdMatch[1]) {
-                                        imagesArray.push(`https://lh3.googleusercontent.com/d/${driveIdMatch[1]}=s600`);
+                                        imagesArray.push(`https://lh3.googleusercontent.com/u/0/d/${driveIdMatch[1]}=s600`);
                                     }
                                 } else {
                                     imagesArray.push(trimmedPhoto);
@@ -839,7 +822,7 @@
         function createPremiumPlaceholderSvg(name) {
             const initials = name.substring(0, 2).toUpperCase();
             return `
-                <div class="w-full h-full min-h-[160px] bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 flex flex-col items-center justify-center p-4 text-center select-none relative">
+                <div class="w-full h-full bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 flex flex-col items-center justify-center p-4 text-center select-none relative">
                     <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-full border border-gold-500/30 flex items-center justify-center text-gold luxury-text-glow font-luxury font-bold text-sm sm:text-lg mb-1.5 z-10 bg-navy-950/80">
                         ${initials}
                     </div>
@@ -1020,15 +1003,31 @@
             document.getElementById('shippingFormModal').classList.add('hidden');
         }
 
-        function executeWhatsAppCheckout(event) {
+        // FITUR UTAMA: MEMBACA BERKAS GAMBAR DAN MENGUBAHNYA MENJADI STRUKTUR DATA BASE64
+        function readFileAsBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function executeWhatsAppCheckout(event) {
             event.preventDefault();
 
             const name = document.getElementById('custName').value.trim();
             const phone = document.getElementById('custPhone').value.trim();
             const address = document.getElementById('custAddress').value.trim();
             const courier = document.getElementById('custCourier').value;
+            const fileInput = document.getElementById('custProof');
+            const btnSubmit = document.getElementById('btnSubmitOrder');
 
             if (shoppingCart.length === 0) return;
+
+            // Mengubah tombol menjadi mode loading saat pengunggahan gambar ke sistem Google sedang berjalan
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Memproses...`;
 
             let formattedOrderItems = "";
             let cartGrandTotal = 0;
@@ -1044,8 +1043,32 @@
                 formattedOrderItems += `${index + 1}. ${flag} ${item.product.name} (x${item.qty}) - ${formatRupiah(totalLineItemPrice)}\n`;
             });
 
-            const message = `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️\n🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia\n\n*Data Pembeli:*\n👤 *Nama:* ${name}\n📞 *No. WA:* ${phone}\n📍 *Alamat:* ${address}\n🚚 *Kurir:* ${courier}\n\n*Detail Pesanan:*\n${formattedOrderItems}\n*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*\n\n-----------------------------------------\nMohon segera dihitung ongkos kirim dan kirimkan nomor rekeningnya ya admin. Terima kasih! 😊`;
+            // Menyusun payload data yang akan dikirim ke Google Apps Script backend
+            let payloadData = {
+                tanggal: new Date().toLocaleString("id-ID"),
+                nama: name,
+                whatsapp: phone,
+                alamat: address,
+                kurir: courier,
+                produk: formattedOrderItems,
+                total: cartGrandTotal,
+                fileData: null,
+                fileName: null
+            };
 
+            // Jika pembeli melampirkan file foto, baca file terlebih dahulu menjadi Base64
+            if (fileInput.files.length > 0) {
+                try {
+                    const file = fileInput.files[0];
+                    const base64String = await readFileAsBase64(file);
+                    payloadData.fileData = base64String;
+                    payloadData.fileName = `Bukti_${name.replace(/\s+/g, '_')}_${Date.now()}.${file.name.split('.').pop()}`;
+                } catch (err) {
+                    console.error("Gagal membaca file gambar:", err);
+                }
+            }
+
+            const message = `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️\n🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia\n\n*Data Pembeli:*\n👤 *Nama:* ${name}\n📞 *No. WA:* ${phone}\n📍 *Alamat:* ${address}\n🚚 *Kurir:* ${courier}\n\n*Detail Pesanan:*\n${formattedOrderItems}\n*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*\n\n-----------------------------------------\nMohon segera dihitung ongkos kirim dan diproses ya admin. Bukti transfer sudah dilampirkan via web. Terima kasih! 😊`;
             fetch(ORDER_SHEET_API, {
                 method: "POST",
                 mode: "no-cors",
@@ -1060,10 +1083,27 @@
                     total: cartGrandTotal
                 })
             }).catch(error => console.error("Gagal sinkron log order webapp:", error));
+            // Mengirim data ke Google Web App API (menyimpan teks ke Sheets dan gambar ke Drive)
+            try {
+                await fetch(ORDER_SHEET_API, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payloadData)
+                });
+            } catch (error) {
+                console.error("Gagal sinkron log order webapp:", error);
+            }
 
+            // Kembalikan status tombol kirim ke semula
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = `<i class="fa-solid fa-paper-plane"></i> KIRIM ORDER`;
+
+            // Membuka tautan pengalihan pesan otomatis ke API WhatsApp target
             const finalUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_CS_NUMBER}&text=${encodeURIComponent(message)}`;
             window.open(finalUrl, '_blank');
 
+            // Reset komponen transaksi setelah transaksi berhasil terkirim
             shoppingCart = [];
             updateCartInterface();
             closeShippingModal();
