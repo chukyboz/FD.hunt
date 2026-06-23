@@ -1038,7 +1038,7 @@
             });
         }
 
-        async function executeWhatsAppCheckout(event) {
+       async function executeWhatsAppCheckout(event) {
             event.preventDefault();
 
             const name = document.getElementById('custName').value.trim();
@@ -1049,6 +1049,14 @@
             const btnSubmit = document.getElementById('btnSubmitOrder');
 
             if (shoppingCart.length === 0) return;
+
+            // PERUBAHAN VALIDASI: Jika tidak ada berkas bukti transfer yang diunggah, proses langsung dihentikan!
+            if (!fileInput.files || fileInput.files.length === 0) {
+                console.log("=== VALIDASI GAGAL: Harusnya berhenti di sini ===");
+                showAmbientFeedback("Gagal! Anda wajib mengunggah bukti transfer terlebih dahulu.");
+                fileInput.focus();
+                return; // Membatalkan pembuatan pesanan
+            }
 
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Memproses...`;
@@ -1079,51 +1087,36 @@
                 fileName: null
             };
 
-            if (fileInput.files.length > 0) {
-                try {
-                    const file = fileInput.files[0];
-                    const base64String = await readFileAsBase64(file);
-                    payloadData.fileData = base64String;
-                    payloadData.fileName = `Bukti_${name.replace(/\s+/g, '_')}_${Date.now()}.${file.name.split('.').pop()}`;
-                } catch (err) {
-                    console.error("Gagal membaca file gambar:", err);
-                }
+            // 2. Membaca gambar bukti transfer menjadi Base64
+            try {
+                const file = fileInput.files[0];
+                const base64String = await readFileAsBase64(file);
+                payloadData.fileData = base64String;
+                payloadData.fileName = `Bukti_${name.replace(/\s+/g, '_')}_${Date.now()}.${file.name.split('.').pop()}`;
+            } catch (err) {
+                console.error("Gagal membaca file gambar:", err);
             }
 
             const message = `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️\n🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia\n\n*Data Pembeli:*\n👤 *Nama:* ${name}\n📞 *No. WA:* ${phone}\n📍 *Alamat:* ${address}\n🚚 *Kurir:* ${courier}\n\n*Detail Pesanan:*\n${formattedOrderItems}\n*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*\n\n-----------------------------------------\nMohon segera dihitung ongkos kirim dan diproses ya admin. Bukti transfer sudah dilampirkan via web. Terima kasih! 😊`;
             
+            // 3. OPTIMASI: Kirim data lengkap ke Google Sheets CUKUP SATU KALI dan TANPA 'await'
+            // Dengan begini data tetap masuk ke Sheets, namun WhatsApp bisa langsung terbuka tanpa delay jaringan.
             fetch(ORDER_SHEET_API, {
                 method: "POST",
                 mode: "no-cors",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    tanggal: new Date().toLocaleString("id-ID"),
-                    nama: name,
-                    whatsapp: phone,
-                    alamat: address,
-                    kurir: courier,
-                    produk: formattedOrderItems,
-                    total: cartGrandTotal
-                })
+                body: JSON.stringify(payloadData)
             }).catch(error => console.error("Gagal sinkron log order webapp:", error));
-
-            try {
-                await fetch(ORDER_SHEET_API, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payloadData)
-                });
-            } catch (error) {
-                console.error("Gagal sinkron log order webapp:", error);
-            }
 
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = `<i class="fa-solid fa-paper-plane"></i> KIRIM ORDER`;
 
             const finalUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_CS_NUMBER}&text=${encodeURIComponent(message)}`;
-            window.open(finalUrl, '_blank');
+            
+            // 4. SOLUSI UTAMA: Gunakan window.location.href agar tidak diblokir sistem keamanan browser
+            window.location.href = finalUrl;
 
+            // Reset data form dan keranjang belanja
             shoppingCart = [];
             updateCartInterface();
             closeShippingModal();
