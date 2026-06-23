@@ -261,6 +261,12 @@
                     </select>
                 </div>
 
+                <div id="modalFashionSection" class="hidden space-y-2 pt-2 border-t border-slate-800">
+                    <label class="block text-[9px] sm:text-[10px] font-semibold text-gold uppercase tracking-wider"><i class="fa-solid fa-palette mr-1.5"></i> Catatan Warna (Opsional):</label>
+                    <input type="text" id="modalFashionColor" placeholder="Contoh: Merah, Hitam, atau warna cadangan jika kosong" 
+                        class="w-full px-3.5 py-2.5 bg-navy-950 border border-gold-500/20 rounded-xl text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold/50 transition-all">
+                </div>
+
                 <div id="modalVariantSection" class="hidden space-y-2 pt-2 border-t border-slate-800">
                     <label class="block text-[9px] sm:text-[10px] font-semibold text-gold uppercase tracking-wider"><i class="fa-solid fa-sliders mr-1.5"></i> Pilih Varian Ukuran / Jenis:</label>
                     <div id="modalVariantGrid" class="grid grid-cols-2 gap-2">
@@ -423,10 +429,8 @@
     <script>
         const WHATSAPP_CS_NUMBER = "628197966033";
         const GOOGLE_SHEET_ID = "13FR71viN0LPKDXmSkcxCm7rJJYls21ZJZbz85BjI_3Y";
-        // MENGGUNAKAN URL WEB APP BARU YANG TERINTEGRASI DENGAN GOOGLE DRIVE
         const ORDER_SHEET_API = "https://script.google.com/macros/s/AKfycbyaflfmrH-qjw0cGIN43eEGps01AASqY22gvQ-q5ZBZltdIREhXG2rVJzZeO6ojql-G/exec";
 
-        // Fallback Cache Database Luring
         const OFFLINE_PRODUCTS_FALLBACK = [
             { id: 4, name: "Chiko Tomato", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
             { id: 5, name: "Sandwich cheese", price: 50000, category: "food", desc: "Camilan & kuliner khas berkualitas tinggi" },
@@ -691,11 +695,23 @@
             document.getElementById('modalProductCategory').textContent = product.category;
             document.getElementById('modalProductDesc').textContent = product.desc;
 
+            // Logika Kondisional Untuk F1
             const f1Section = document.getElementById('modalF1Section');
             if (product.name.toLowerCase().includes('f1')) {
                 f1Section.classList.remove('hidden');
             } else {
                 f1Section.classList.add('hidden');
+            }
+
+            // LOGIKA KONDISIONAL BARU: Menampilkan input warna opsional jika kategori 'fashion'
+            const fashionSection = document.getElementById('modalFashionSection');
+            const fashionInput = document.getElementById('modalFashionColor');
+            if (fashionInput) fashionInput.value = ''; // Reset input teks
+
+            if (product.category === 'fashion') {
+                if (fashionSection) fashionSection.classList.remove('hidden');
+            } else {
+                if (fashionSection) fashionSection.classList.add('hidden');
             }
 
             const imgContainer = document.getElementById('modalProductImageContainer');
@@ -789,10 +805,20 @@
             let finalName = originalProduct.name;
             let cartItemUniqueKey = originalProduct.id + "-" + currentSelectedVariantName;
 
+            // Pengkondisian data tim F1
             if (originalProduct.name.toLowerCase().includes('f1')) {
                 const selectedF1Team = document.getElementById('modalF1Select').value;
                 finalName += ` [${selectedF1Team}]`;
                 cartItemUniqueKey += "-" + selectedF1Team.replace(/\s+/g, '-');
+            }
+
+            // PENGKONDISIAN BARU: Memasukkan catatan warna jika kategori Fashion dan diisi
+            if (originalProduct.category === 'fashion') {
+                const selectedColor = document.getElementById('modalFashionColor').value.trim();
+                if (selectedColor !== "") {
+                    finalName += ` [Warna: ${selectedColor}]`;
+                    cartItemUniqueKey += "-" + selectedColor.replace(/\s+/g, '-');
+                }
             }
 
             if (currentSelectedVariantName !== "") {
@@ -1003,7 +1029,6 @@
             document.getElementById('shippingFormModal').classList.add('hidden');
         }
 
-        // FITUR UTAMA: MEMBACA BERKAS GAMBAR DAN MENGUBAHNYA MENJADI STRUKTUR DATA BASE64
         function readFileAsBase64(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -1025,7 +1050,6 @@
 
             if (shoppingCart.length === 0) return;
 
-            // Mengubah tombol menjadi mode loading saat pengunggahan gambar ke sistem Google sedang berjalan
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Memproses...`;
 
@@ -1043,7 +1067,6 @@
                 formattedOrderItems += `${index + 1}. ${flag} ${item.product.name} (x${item.qty}) - ${formatRupiah(totalLineItemPrice)}\n`;
             });
 
-            // Menyusun payload data yang akan dikirim ke Google Apps Script backend
             let payloadData = {
                 tanggal: new Date().toLocaleString("id-ID"),
                 nama: name,
@@ -1056,7 +1079,6 @@
                 fileName: null
             };
 
-            // Jika pembeli melampirkan file foto, baca file terlebih dahulu menjadi Base64
             if (fileInput.files.length > 0) {
                 try {
                     const file = fileInput.files[0];
@@ -1069,6 +1091,7 @@
             }
 
             const message = `🛍️ *FORM ORDER FD.HUNT JASTIP ADVENTURES* 🛍️\n🇹🇭 Bangkok · 🇲🇾 Malaysia → 🇮🇩 Indonesia\n\n*Data Pembeli:*\n👤 *Nama:* ${name}\n📞 *No. WA:* ${phone}\n📍 *Alamat:* ${address}\n🚚 *Kurir:* ${courier}\n\n*Detail Pesanan:*\n${formattedOrderItems}\n*Total Pembayaran:* *${formatRupiah(cartGrandTotal)}*\n\n-----------------------------------------\nMohon segera dihitung ongkos kirim dan diproses ya admin. Bukti transfer sudah dilampirkan via web. Terima kasih! 😊`;
+            
             fetch(ORDER_SHEET_API, {
                 method: "POST",
                 mode: "no-cors",
@@ -1083,7 +1106,7 @@
                     total: cartGrandTotal
                 })
             }).catch(error => console.error("Gagal sinkron log order webapp:", error));
-            // Mengirim data ke Google Web App API (menyimpan teks ke Sheets dan gambar ke Drive)
+
             try {
                 await fetch(ORDER_SHEET_API, {
                     method: "POST",
@@ -1095,15 +1118,12 @@
                 console.error("Gagal sinkron log order webapp:", error);
             }
 
-            // Kembalikan status tombol kirim ke semula
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = `<i class="fa-solid fa-paper-plane"></i> KIRIM ORDER`;
 
-            // Membuka tautan pengalihan pesan otomatis ke API WhatsApp target
             const finalUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_CS_NUMBER}&text=${encodeURIComponent(message)}`;
             window.open(finalUrl, '_blank');
 
-            // Reset komponen transaksi setelah transaksi berhasil terkirim
             shoppingCart = [];
             updateCartInterface();
             closeShippingModal();
